@@ -1,11 +1,10 @@
 import React from 'react';
-import Header from '../components/Header'
+import HeaderBlock from '../components/HeaderBlock'
 
 const Index = () => {
   return (
     <div>
-    HOME
-    <Header />
+      <HeaderBlock />
     </div>
   );
 }
