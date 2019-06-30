@@ -4,6 +4,8 @@ import './App.css';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
 import { autoLoginUser } from './actions/auth.js';
+import { fetchPosts } from './actions/posts';
+
 import { Route } from 'react-router-dom'
 ////
 import SignupForm from './components/SignupForm';
@@ -17,6 +19,7 @@ class App extends React.Component {
 
   componentDidMount = () => {
     this.props.autoLoginUser()
+    this.props.fetchPosts()
   }
 
   render(){
@@ -34,11 +37,14 @@ class App extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  currentUser: state.users.currentUser
+  currentUser: state.users.currentUser,
+  allPosts: state.posts.allPosts
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  autoLoginUser: () => dispatch(autoLoginUser())
+  autoLoginUser: () => dispatch(autoLoginUser()),
+  fetchPosts: () => dispatch(fetchPosts())
 })
+
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

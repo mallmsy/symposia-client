@@ -1,51 +1,20 @@
 import React from 'react';
-import { Grid, Image, Segment } from 'semantic-ui-react'
+import { Grid, Image, Segment } from 'semantic-ui-react';
+import PostContainer from './PostContainer';
+import { connect } from 'react-redux';
 
-const Index = () => {
+const Index = ({allPosts}) => {
   return (
-    <Grid stackable columns='equal'>
-    <Grid.Row stretched>
-      <Grid.Column>
-      Column One
-        <Segment>1</Segment>
-        <Segment>2</Segment>
-      </Grid.Column>
+    <div>
+      <PostContainer posts={allPosts} />
+    </div>
+  )
+};
 
-      <Grid.Column>
-      Column Two
-        <Segment>
-          <Image src='https://react.semantic-ui.com/images/wireframe/paragraph.png' />
-        </Segment>
-      </Grid.Column>
-
-      <Grid.Column>
-      Column Three
-        <Segment>1</Segment>
-        <Segment>2</Segment>
-      </Grid.Column>
-    </Grid.Row>
-
-    <Grid.Row>
-      <Grid.Column>
-      Column One
-        <Segment>1</Segment>
-        <Segment>2</Segment>
-      </Grid.Column>
-
-      <Grid.Column>
-      Column Two
-        <Segment>
-          <Image src='https://react.semantic-ui.com/images/wireframe/paragraph.png' />
-        </Segment>
-      </Grid.Column>
-      <Grid.Column>
-      Column Three
-        <Segment>1</Segment>
-        <Segment>2</Segment>
-      </Grid.Column>
-    </Grid.Row>
-  </Grid>
-  );
+const mapStateToProps = state => {
+  return{
+    allPosts: state.posts.allPosts
+  }
 }
 
-export default Index;
+export default connect(mapStateToProps)(Index);
