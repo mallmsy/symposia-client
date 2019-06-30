@@ -7,7 +7,7 @@ const CATEGORIES = ["CLIMATE", "IMMIGRATION", "TWENTY_TWENTY", "NATIONAL+DEBT", 
 
 export function fetchPosts() {
   return function(dispatch) {
-    return fetch(`https://newsapi.org/v2/everything?sources=${ALL_SOURCES}&pageSize=100&apiKey=${API_KEY}`)
+    return fetch(`https://newsapi.org/v2/everything?sources=${ALL_SOURCES}&pageSize=10&apiKey=${API_KEY}`)
     .then(res => res.json())
     .then(posts => {
       return dispatch({type: "FETCH_POSTS", payload: posts.articles})

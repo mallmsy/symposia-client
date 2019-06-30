@@ -1,6 +1,9 @@
 .App {
   text-align: center;
   font-family: 'Cutive Mono', monospace;
+  background-image: url('./background_gradient.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .App-logo {

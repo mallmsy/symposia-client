@@ -1,11 +1,12 @@
 import React from 'react';
 import Post from '../components/Post';
+import { Segment } from 'semantic-ui-react';
 
 const PostContainer = ({posts}) => {
   return(
-    <div>
+    <Segment.Group>
       {posts.map(post => <Post post={post}/>)}
-    </div>
+    </Segment.Group>
   )
 };
 
