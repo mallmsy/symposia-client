@@ -1,9 +1,9 @@
 import React from 'react';
 import { Header, Icon, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { filterPosts } from '../actions/posts';
+import { filterPosts, fetchNewArticles } from '../actions/posts';
 
-const FilterBar = ({filterPosts}) => {
+const FilterBar = ({filterPosts, fetchNewArticles}) => {
   return (
     <div className={"App-header"}>
       <Header as='h3' icon textAlign='center'>
@@ -17,13 +17,19 @@ const FilterBar = ({filterPosts}) => {
          <Button circular onClick={() => filterPosts("ABORTION")}>ABORTION</Button>
          <Button circular onClick={() => filterPosts("climate")}>CLIMATE</Button>
        </Header>
+       {/*<Header as="h4" textAlign='center'>
+        <Header.Content>
+        <Button onClick={() => fetchNewArticles()}>Get New Articles</Button>
+        </Header.Content>
+      </Header>*/}
     </div>
   );
 }
 
 const mapDispatchToProps = dispatch => {
   return({
-    filterPosts: (category) => dispatch(filterPosts(category))
+    filterPosts: (category) => dispatch(filterPosts(category)),
+    fetchNewArticles: () => dispatch(fetchNewArticles())
   })
 }
 

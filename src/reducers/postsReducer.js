@@ -24,6 +24,9 @@ function postsReducer (state = defaultState, action) {
         rightPosts: filtered.filter(post => post.slant === "right"),
         centerPosts: filtered.filter(post => post.slant === "center")
       }
+
+    case "LOAD_NEW_POSTS":
+      return {...state, allPosts: [action.payload, ...state.allPosts]}
     default:
       return state
   }
