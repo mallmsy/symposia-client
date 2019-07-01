@@ -4,19 +4,20 @@ import PostContainer from './PostContainer';
 import FilterBar from './FilterBar';
 import { connect } from 'react-redux';
 
-const Index = ({allPosts}) => {
+const Index = ({allPosts, leftPosts, centerPosts, rightPosts}) => {
   return (
     <div>
       <FilterBar />
+      <br/>
       <Grid columns='equal' padded>
         <Grid.Column>
-          <PostContainer posts={allPosts} />
+          <PostContainer posts={leftPosts} />
         </Grid.Column>
         <Grid.Column>
-          <PostContainer posts={allPosts} />
+          <PostContainer posts={centerPosts} />
         </Grid.Column>
         <Grid.Column>
-          <PostContainer posts={allPosts} />
+          <PostContainer posts={rightPosts} />
         </Grid.Column>
       </Grid>
     </div>
@@ -25,7 +26,10 @@ const Index = ({allPosts}) => {
 
 const mapStateToProps = state => {
   return{
-    allPosts: state.posts.allPosts
+    allPosts: state.posts.allPosts,
+    leftPosts: state.posts.leftPosts,
+    centerPosts: state.posts.centerPosts,
+    rightPosts: state.posts.rightPosts
   }
 }
 
