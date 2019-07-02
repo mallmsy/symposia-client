@@ -38,7 +38,6 @@ export function loginUser(user, history) {
         } else {
           localStorage.setItem("token", data.jwt)
           dispatch({type: 'LOGIN_USER', payload: data.user})
-          console.log("logged in!")
           history.push('/index')
         }
       })

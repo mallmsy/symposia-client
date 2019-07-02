@@ -1,5 +1,5 @@
 const defaultState = {
-  likes: []
+  allLikes: []
 }
 
 function likesReducer (state = defaultState, action) {

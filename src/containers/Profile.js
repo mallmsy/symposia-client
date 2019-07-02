@@ -1,18 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Grid, Image } from 'semantic-ui-react'
+import { Grid, Image, Progress } from 'semantic-ui-react'
 
 const Profile = ({history, currentUser}) => {
   return (
     <Grid divided='vertically'>
-      <Grid.Row columns={2}>
+      <Grid.Row className='profile-header' columns={2}>
         <Grid.Column>
           <Image centered src={currentUser.img_url} />
           <h1>{currentUser.username}</h1>
           <p>{currentUser.bio}</p>
         </Grid.Column>
         <Grid.Column>
-          <Image src='https://react.semantic-ui.com/images/wireframe/paragraph.png' />
+          <br/>
+          <Progress percent={96} color='red'>{currentUser.slant.toUpperCase()}</Progress>
         </Grid.Column>
       </Grid.Row>
 

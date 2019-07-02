@@ -5,7 +5,7 @@ import { Segment } from 'semantic-ui-react';
 const PostContainer = ({posts}) => {
   return(
     <Segment.Group>
-      {posts.map(post => <Post post={post}/>)}
+      {posts.map(post => <Post key={post.id} post={post}/>)}
     </Segment.Group>
   )
 };

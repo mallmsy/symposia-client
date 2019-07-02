@@ -1,4 +1,3 @@
-const CATEGORIES = ["CLIMATE", "IMMIGRATION", "TWENTY_TWENTY", "NATIONAL+DEBT", "ABORTION", "BORDER"]
 const BASE_URL = "http://localhost:3000/"
 
 export function fetchPosts(){

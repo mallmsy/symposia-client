@@ -5,7 +5,7 @@ import { filterPosts, fetchNewArticles } from '../actions/posts';
 
 const FilterBar = ({filterPosts, fetchNewArticles}) => {
   return (
-    <div className={"App-header"}>
+    <div className={"page-header"}>
       <Header as='h3' icon textAlign='center'>
           <Header.Content>SYMPOSIA</Header.Content>
          <Icon name='star outline' circular />
