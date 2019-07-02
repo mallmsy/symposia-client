@@ -9,7 +9,7 @@
   pointer-events: none;
 }
 
-.button {
+/* .topic-button {
   position: relative;
   height: 2.5vw;
   width: 9vw;
@@ -20,19 +20,74 @@
   margin: 2vw;
   background-image: url('./background_gradient.jpg');
   background-size: contain;
+} */
+
+
+.topic-button {
+  text-align: center;
+  align-items: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 1vw;
+  letter-spacing: 4px;
+  position: relative;
+  border-radius: 50px;
+  background-color: #00b5fa;
+  background-size: contain;
+  border: none;
+  color: #fff;
+  margin: 1vw;
+  padding: 5px;
+  height: 3vw;
+  width: 12vw;
+  transition-duration: 0.5s;
+  overflow: hidden;
+  box-shadow: 0 5px 15px #193047;
+  vertical-align: middle;
 }
+
+.topic-button:hover {
+  background: #fff;
+  color: #000;
+}
+
+.topic-button:after {
+  content: "";
+  background: ##4aaacd;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.topic-button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
+.topic-button:focus { outline:0; }
+
+
+
+
 
 .slant-meter {
   position: relative;
   height: 2vw;
   width: 25vw;
   border-radius: 50px;
-  background: rgb(244, 45, 59);
+  background: #ff0019;
   border: 1px solid #333;
 }
 
 .filler {
-  background: rgb(29, 127, 226);
+  background: #00b5fa;
   height: 100%;
   border-radius: inherit;
   transition: width .2s ease-in;
