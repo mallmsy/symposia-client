@@ -11,11 +11,11 @@ const FilterBar = ({filterPosts, fetchNewArticles}) => {
          <Icon name='star outline' circular />
          <Header.Content>Filter By Topic</Header.Content>
          <br/>
-         <Button circular onClick={() => filterPosts("IMMIGRATION")}>IMMIGRATION</Button>
-         <Button circular onClick={() => filterPosts("NATIONAL+DEBT")}>NATIONAL DEBT</Button>
-         <Button circular onClick={() => filterPosts("2020")}>2020 ELECTION</Button>
-         <Button circular onClick={() => filterPosts("ABORTION")}>ABORTION</Button>
-         <Button circular onClick={() => filterPosts("climate")}>CLIMATE</Button>
+         <button className='button' onClick={() => filterPosts("IMMIGRATION")}>IMMIGRATION</button>
+         <button className='button' onClick={() => filterPosts("NATIONAL+DEBT")}>NATIONAL DEBT</button>
+         <button className='button' onClick={() => filterPosts("2020")}>2020 ELECTION</button>
+         <button className='button' onClick={() => filterPosts("ABORTION")}>ABORTION</button>
+         <button className='button' onClick={() => filterPosts("CLIMATE")}>CLIMATE</button>
        </Header>
        {/*<Header as="h4" textAlign='center'>
         <Header.Content>

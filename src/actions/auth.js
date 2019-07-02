@@ -10,8 +10,8 @@ export function signUpUser (user, history) {
     })
       .then(resp => resp.json())
       .then(data => {
-        if (data.message) {
-          alert(data.message)
+        if (data.errors) {
+          alert(data.errors)
         } else {
           localStorage.setItem("token", data.jwt)
           dispatch({type: 'LOGIN_USER', payload: data.user})
@@ -33,8 +33,8 @@ export function loginUser(user, history) {
     })
       .then(resp => resp.json())
       .then(data => {
-        if (data.message) {
-          alert(data.message)
+        if (data.errors) {
+          alert(data.errors)
         } else {
           localStorage.setItem("token", data.jwt)
           dispatch({type: 'LOGIN_USER', payload: data.user})
@@ -57,8 +57,8 @@ export function autoLoginUser() {
       })
         .then(resp => resp.json())
         .then(data => {
-          if (data.message) {
-            alert(data.message)
+          if (data.errors) {
+            alert(data.errors)
             localStorage.removeItem("token")
           } else {
             dispatch({type: 'LOGIN_USER', payload: data.user})

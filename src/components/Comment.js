@@ -10,7 +10,7 @@ class Comment extends PureComponent {
         <Feed.Content>
           <Feed.Date content='1 day ago' />
           <Feed.Summary>
-            You added <a>Jenny Hess</a> to your <a>coworker</a> group.
+            You added Jenny Hess to your group.
           </Feed.Summary>
        </Feed.Content>
      </Feed.Event>

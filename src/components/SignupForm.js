@@ -9,7 +9,7 @@ class Signup extends Component {
     password: "",
     img_url: "",
     bio: "",
-    slant: ""
+    slant: 0
   }
 
   handleChange = (event, selected) => {
@@ -26,9 +26,9 @@ class Signup extends Component {
   }
 
   slantOptions = [
-    {name: 'slant', key: 'left', value: 'left', text: 'Left'},
-    {name: 'slant', key: 'center', value: 'center', text: 'Center'},
-    {name: 'slant', key: 'right', value: 'right', text: 'Right'}
+    {name: 'slant', key: 'left', value: '75', text: 'Left'},
+    {name: 'slant', key: 'center', value: '50', text: 'Center'},
+    {name: 'slant', key: 'right', value: '25', text: 'Right'}
   ]
 
   render() {

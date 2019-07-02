@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Image, Segment } from 'semantic-ui-react'
+import { Header, Segment } from 'semantic-ui-react'
 
 const HeaderBlock = () => {
   return (
