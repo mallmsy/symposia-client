@@ -7,7 +7,7 @@ import { addLike } from '../actions/likes'
 class Post extends React.Component {
 
   state = {
-    likes: this.props.post.likes.length,
+    likes: this.props.post.likes && this.props.post.likes.length,
     disabled: false
   }
 
@@ -23,11 +23,10 @@ class Post extends React.Component {
   render() {
     return(
       <Card fluid>
-        <Image src={this.props.post.img_url} href={this.props.post.link}/>
         <Card.Header>{this.props.post.title}</Card.Header>
-        <Card.Description>{this.props.post.source}</Card.Description>
-        <Card.Description>{this.props.post.author}</Card.Description>
+        <Card.Description>SOURCE - {this.props.post.source}</Card.Description>
         <Card.Description>{this.props.post.publish_date}</Card.Description>
+        <Image size='small' floated='left' src={this.props.post.img_url} href={this.props.post.link}/>
         <Card.Content>{this.props.post.content}</Card.Content>
         <Button
          content='Like'
@@ -37,7 +36,7 @@ class Post extends React.Component {
          disabled={this.props.likedPostIds.includes(this.props.post.id) ? true : this.state.disabled}
          onClick={this.handleClick}
        />
-        {/*<CommentFeed />*/}
+        <CommentFeed postId={this.props.post.id}/>
       </Card>
     )
   }

@@ -10,21 +10,32 @@ function postsReducer (state = defaultState, action) {
     case "FETCH_POSTS":
       return ({...state,
           allPosts: action.payload,
-          leftPosts: action.payload.filter(post => post.slant === "left").sort((a,b) => a.publish_date > b.publish_date ? -1 : 1),
-          rightPosts: action.payload.filter(post => post.slant === "right").sort((a,b) => a.publish_date > b.publish_date ? -1 : 1),
-          centerPosts: action.payload.filter(post => post.slant === "center").sort((a,b) => a.publish_date > b.publish_date ? -1 : 1)
+          leftPosts: action.payload.filter(post => post.slant === "left"),
+          rightPosts: action.payload.filter(post => post.slant === "right"),
+          centerPosts: action.payload.filter(post => post.slant === "center")
         })
       case "FILTER_POSTS":
         let newState = {...state}
-        let filtered  = newState.allPosts.filter(post => post.topic === action.payload.toUpperCase())
+        let filtered;
+
+        if (action.payload === "NONE") {
+          filtered = newState.allPosts
+        } else {
+          filtered  = newState.allPosts.filter(post => post.topic === action.payload.toUpperCase())
+        }
         return ({...state,
-          leftPosts: filtered.filter(post => post.slant === "left").sort((a,b) => a.publish_date > b.publish_date ? -1 : 1),
-          rightPosts: filtered.filter(post => post.slant === "right").sort((a,b) => a.publish_date > b.publish_date ? -1 : 1),
-          centerPosts: filtered.filter(post => post.slant === "center").sort((a,b) => a.publish_date > b.publish_date ? -1 : 1)
+          leftPosts: filtered.filter(post => post.slant === "left"),
+          rightPosts: filtered.filter(post => post.slant === "right"),
+          centerPosts: filtered.filter(post => post.slant === "center")
         })
 
     case "LOAD_NEW_POSTS":
-      return {...state, allPosts: [action.payload, ...state.allPosts]}
+      return ({...state,
+        allPosts: [action.payload, ...state.allPosts],
+        leftPosts: [action.payload.filter(post => post.slant === "left"), ...state.leftPosts],
+        rightPosts: [action.payload.filter(post => post.slant === "right"), ...state.rightPosts],
+        centerPosts: [action.payload.filter(post => post.slant === "center"), ...state.centerPosts]
+      })
 
     default:
       return state

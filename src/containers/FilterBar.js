@@ -16,12 +16,13 @@ const FilterBar = ({filterPosts, fetchNewArticles}) => {
          <button className='topic-button' onClick={() => filterPosts("2020")}>2020 ELECTION</button>
          <button className='topic-button' onClick={() => filterPosts("ABORTION")}>ABORTION</button>
          <button className='topic-button' onClick={() => filterPosts("CLIMATE")}>CLIMATE</button>
+         <button className='topic-button' onClick={() => filterPosts("NONE")}>ALL POSTS</button>
        </Header>
-       {/*<Header as="h4" textAlign='center'>
+       <Header as="h4" textAlign='center'>
         <Header.Content>
         <Button onClick={() => fetchNewArticles()}>Get New Articles</Button>
         </Header.Content>
-      </Header>*/}
+      </Header>
     </div>
   );
 }

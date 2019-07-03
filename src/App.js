@@ -1,21 +1,25 @@
-import React from 'react';
+import React, { Component, createRef } from 'react';
 import './App.css';
+import { Route } from 'react-router-dom';
+import { Sticky } from 'semantic-ui-react';
 ////
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 import { autoLoginUser } from './actions/auth.js';
 import { fetchPosts } from './actions/posts';
 
-import { Route } from 'react-router-dom'
 ////
 import SignupForm from './components/SignupForm';
 import LoginForm from './components/LoginForm';
+
 import Index from './containers/Index';
 import Home from './containers/Home';
 import Profile from './containers/Profile';
+import ProfileEdit from './containers/ProfileEdit';
 import Nav from './containers/Nav';
 
 class App extends React.Component {
+  contextRef = createRef()
 
   componentDidMount = () => {
     this.props.autoLoginUser()
@@ -24,8 +28,10 @@ class App extends React.Component {
 
   render(){
     return (
-      <div className="App">
-        <Nav history={this.props.history} currentUser={this.props.currentUser}/>
+      <div ref={this.contextRef} className="App">
+        <Sticky context={this.contextRef}>
+          <Nav history={this.props.history} currentUser={this.props.currentUser}/>
+        </Sticky>
         <Route exact path="/" component={Home} />
         <Route path="/index" component={Index} />
         <Route path="/login" render={() => <LoginForm history={this.props.history}/>}/>

@@ -34,7 +34,7 @@ class Nav extends PureComponent {
           ?
           <>
             <Menu.Item>
-              Today's Likes
+              <h4>Session Likes</h4>
               <SlantMeter slant={this.props.userSlant} />
             </Menu.Item>
             <Menu.Item>

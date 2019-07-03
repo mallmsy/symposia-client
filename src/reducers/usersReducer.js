@@ -26,6 +26,9 @@ export default function usersReducer (state = defaultState, action) {
         userSlant: slantIndex,
         likedPostIds: [...state.likedPostIds, action.payload.id]}
 
+    case 'EDIT_PROFILE':
+      return {...state, currentUser: action.payload, userSlant: action.payload.slant}
+
     default:
       return state
   }

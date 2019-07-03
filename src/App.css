@@ -9,20 +9,9 @@
   pointer-events: none;
 }
 
-/* .topic-button {
-  position: relative;
-  height: 2.5vw;
-  width: 9vw;
-  border-radius: 50px;
-  font-family: 'Cutive Mono', monospace;
-  font-size: 1vw;
-  color: white;
-  margin: 2vw;
-  background-image: url('./background_gradient.jpg');
-  background-size: contain;
-} */
-
-
+h1 {
+  font-family: 
+}
 .topic-button {
   text-align: center;
   align-items: center;
@@ -31,7 +20,6 @@
   font-size: 1vw;
   letter-spacing: 4px;
   position: relative;
-  border-radius: 50px;
   background-color: #00b5fa;
   background-size: contain;
   border: none;
@@ -74,22 +62,17 @@
 .topic-button:focus { outline:0; }
 
 
-
-
-
 .slant-meter {
   position: relative;
   height: 2vw;
   width: 25vw;
-  border-radius: 50px;
   background: #ff0019;
-  border: 1px solid #333;
+
 }
 
 .filler {
   background: #00b5fa;
   height: 100%;
-  border-radius: inherit;
   transition: width .2s ease-in;
 }
 

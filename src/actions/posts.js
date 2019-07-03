@@ -5,19 +5,28 @@ export function fetchPosts(){
     return fetch(BASE_URL+"posts")
     .then(res => res.json())
     .then(posts => {
-      return dispatch({type: "FETCH_POSTS", payload: posts})
+      return (
+        dispatch({type: "FETCH_POSTS", payload: posts}),
+        {/*dispatch({type: "LOAD_COMMENTS", payload: posts})*/}
+      )
     })
   }
 }
 
 export function fetchNewArticles(){
   return function(dispatch){
-    return fetch("http://localhost:3000/fetch")
-    .then(res => res.json())
-    .then(posts => {
-      console.log(posts)
-      // return dispatch({type: "LOAD_NEW_POSTS", payload: posts})
-    })
+    const token = localStorage.token;
+    if (token) {
+      return fetch("http://localhost:3000/fetch", {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      })
+      .then(res => res.json())
+      .then(posts => {
+        return dispatch({type: "LOAD_NEW_POSTS", payload: posts.posts})
+      })
+    }
   }
 }
 

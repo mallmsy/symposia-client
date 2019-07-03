@@ -11,12 +11,15 @@ const Index = ({allPosts, leftPosts, centerPosts, rightPosts}) => {
       <br/>
       <Grid columns='equal' padded>
         <Grid.Column>
+          <h1>LIBERAL</h1>
           <PostContainer posts={leftPosts} />
         </Grid.Column>
         <Grid.Column>
+          <h1>MODERATE</h1>
           <PostContainer posts={centerPosts} />
         </Grid.Column>
         <Grid.Column>
+          <h1>CONSERVATIVE</h1>
           <PostContainer posts={rightPosts} />
         </Grid.Column>
       </Grid>

@@ -9,7 +9,7 @@ class CommentFeed extends Component {
   render() {
     return (
       <Feed>
-        <AddComment />
+        <AddComment postId={this.props.postId}/>
         <Comment />
       </Feed>
     );
