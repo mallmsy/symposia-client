@@ -36,11 +36,12 @@ class Post extends React.Component {
          disabled={this.props.likedPostIds.includes(this.props.post.id) ? true : this.state.disabled}
          onClick={this.handleClick}
        />
-        <CommentFeed postId={this.props.post.id}/>
+        <CommentFeed comments={this.props.post.comments} postId={this.props.post.id}/>
       </Card>
     )
   }
 }
+
 
 const mapStateToProps = (state) => ({
   currentUser: state.users.currentUser,

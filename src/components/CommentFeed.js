@@ -10,7 +10,7 @@ class CommentFeed extends Component {
     return (
       <Feed>
         <AddComment postId={this.props.postId}/>
-        <Comment />
+        {this.props.comments.map(comment => <Comment comment={comment} />)}
       </Feed>
     );
   }

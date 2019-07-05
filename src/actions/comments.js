@@ -23,3 +23,24 @@ export function createComment(content, postId, userId){
     }
   }
 }
+
+export function updateComment(commentId, content){
+  return function(dispatch){
+    let token = localStorage.token
+    if(token){
+      return fetch(BASE_URL+`comments/${commentId}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          content: content
+        })
+      })
+      .then(res => res.json())
+      .then(commentObj => console.log("response", commentObj))
+    }
+   }
+}

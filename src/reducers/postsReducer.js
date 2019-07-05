@@ -30,12 +30,21 @@ function postsReducer (state = defaultState, action) {
         })
 
     case "LOAD_NEW_POSTS":
-      return ({...state,
-        allPosts: [action.payload, ...state.allPosts],
-        leftPosts: [action.payload.filter(post => post.slant === "left"), ...state.leftPosts],
-        rightPosts: [action.payload.filter(post => post.slant === "right"), ...state.rightPosts],
-        centerPosts: [action.payload.filter(post => post.slant === "center"), ...state.centerPosts]
-      })
+      if (action.payload.length === 0) {
+        alert("You're up to date! No new articles.")
+        return state
+      } else {
+        let filteredLeftPosts = action.payload.filter(post => post.slant === "left")
+        let filteredRightPosts = action.payload.filter(post => post.slant === "right")
+        let filteredCenterPosts = action.payload.filter(post => post.slant === "center")
+        let newState = {
+          allPosts: [...state.allPosts, ...action.payload],
+          leftPosts: [...state.leftPosts, ...filteredLeftPosts],
+          rightPosts: [...state.rightPosts, ...filteredRightPosts],
+          centerPosts: [...state.centerPosts, ...filteredCenterPosts]
+        }
+        return (newState)
+      }
 
     default:
       return state
