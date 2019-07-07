@@ -1,12 +1,10 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { Feed } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { updateComment } from '../actions/comments';
 
-class Comment extends PureComponent {
+class Comment extends React.Component {
 
   state = {
-    editing: false,
     content: this.props.comment.content
   }
 
@@ -16,31 +14,31 @@ class Comment extends PureComponent {
     })
   }
 
-  handleClick = (e) => {
-    this.setState({editing: !this.state.editing})
-    if (e.target.innerText === 'save') {
-      this.props.updateComment(this.props.comment.id, this.state.content)
-    } else {
-      return null
-    }
-  }
+
 
   render() {
-    console.log(this.state)
     return (
       <Feed.Event>
         <Feed.Label image={this.props.comment.user.img_url} />
         <Feed.Label content={this.props.comment.user.username} />
         <Feed.Content>
-        {this.state.editing
+        {this.props.editing
         ?
         <input onChange={this.handleChange} type='text' name='content' value={this.state.content}/>
         :
         <Feed.Summary>
-          {this.props.comment.content}
+          {this.state.content}
         </Feed.Summary>
         }
-          <button onClick={this.handleClick}>{this.state.editing ? 'save' : 'edit'}</button>
+        { this.props.comment.user.id === this.props.currentUser.id
+          ?
+          <>
+            <button onClick={(e) => this.props.handleClick(e, this.props.comment, this.state.content)}>{this.props.editing ? 'save' : 'edit'}</button>
+            <button onClick={(e) => this.props.handleRemove(e, this.props.comment.id)}>delete</button>
+          </>
+          :
+          null
+        }
        </Feed.Content>
      </Feed.Event>
     );
@@ -48,8 +46,8 @@ class Comment extends PureComponent {
 
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  updateComment: (commentId, content) => dispatch(updateComment(commentId, content))
+const mapStateToProps = (state) => ({
+  currentUser: state.users.currentUser
 })
 
-export default connect(null, mapDispatchToProps)(Comment);
+export default connect(mapStateToProps)(Comment);

@@ -1,17 +1,15 @@
 import React from 'react';
-import { Header, Segment } from 'semantic-ui-react'
 
 const HeaderBlock = () => {
   return (
     <div>
-      <Header as='h1' attached='top' textAlign='left'>
-        Symposia
-      </Header>
-      <Segment attached >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-      laboris nisi ut aliquip ex ea commodo consequat.
-      </Segment>
+      <h1 className='h1'>Symposia</h1>
+      <div>
+        <h3>Symposia was inspired to counteract the 'Echo Chamber' created by today's social media.</h3>
+        <p>ECHO CHAMBER ech·o cham·ber /ˈekō ˌCHāmbər/
+        an environment in which a person encounters only beliefs or opinions that coincide with their own, so that their existing views are reinforced and alternative ideas are not considered.
+        "people are living in partisan and ideological echo chambers"</p>
+      </div>
     </div>
   );
 }

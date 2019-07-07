@@ -1,8 +1,8 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { createComment } from '../actions/comments'
 
-class AddComment extends PureComponent {
+class AddComment extends React.Component {
   state = {
     content: ""
   }
@@ -13,21 +13,19 @@ class AddComment extends PureComponent {
     })
   }
 
-  handleSubmit = () => {
-    console.log("submitted")
-    this.props.createComment(this.state, this.props.postId, this.props.currentUser.id)
-    this.setState({
-      content: ""
-    })
+  handleSubmit = (e, content) => {
+    this.props.addComment(e, content)
+    this.setState({content: ''})
   }
+
 
   render() {
     return (
-      <div>
+      <form className='comment-form' onSubmit={(e) => this.handleSubmit(e, this.state.content)}>
         <label>Add Comment:</label>
         <input onChange={this.handleChange} name='content' value={this.state.content} type='text'/>
-        <input type='submit' onClick={this.handleSubmit}/>
-      </div>
+        <input type='submit'/>
+      </form>
     );
   }
 }
@@ -36,8 +34,4 @@ const mapStateToProps = state => ({
   currentUser: state.users.currentUser
 })
 
-const mapDispatchToProps = dispatch => ({
-  createComment: (content, postId, userId) => dispatch(createComment(content, postId, userId))
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(AddComment);
+export default connect(mapStateToProps)(AddComment);

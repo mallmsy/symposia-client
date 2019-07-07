@@ -4,9 +4,9 @@ import { Segment } from 'semantic-ui-react';
 
 const PostContainer = ({posts}) => {
   return(
-    <Segment.Group>
+    <div className='post-container'>
       {posts.map(post => <Post key={post.id} post={post}/>)}
-    </Segment.Group>
+    </div>
   )
 };
 

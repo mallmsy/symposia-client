@@ -5,8 +5,9 @@ import { Sticky } from 'semantic-ui-react';
 ////
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { autoLoginUser } from './actions/auth.js';
+import { autoLoginUser } from './actions/auth';
 import { fetchPosts } from './actions/posts';
+import { fetchComments } from './actions/comments';
 
 ////
 import SignupForm from './components/SignupForm';
@@ -24,6 +25,7 @@ class App extends React.Component {
   componentDidMount = () => {
     this.props.autoLoginUser()
     this.props.fetchPosts()
+    this.props.fetchComments()
   }
 
   render(){
@@ -49,7 +51,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   autoLoginUser: () => dispatch(autoLoginUser()),
-  fetchPosts: () => dispatch(fetchPosts())
+  fetchPosts: () => dispatch(fetchPosts()),
+  fetchComments: () => dispatch(fetchComments())
 })
 
 

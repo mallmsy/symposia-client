@@ -21,23 +21,27 @@ class Post extends React.Component {
   }
 
   render() {
+    const postComments = this.props.allComments.filter(comment => comment.post_id === this.props.post.id)
+    // console.log("comments inside post render", postComments)
+
     return(
-      <Card fluid>
-        <Card.Header>{this.props.post.title}</Card.Header>
-        <Card.Description>SOURCE - {this.props.post.source}</Card.Description>
-        <Card.Description>{this.props.post.publish_date}</Card.Description>
-        <Image size='small' floated='left' src={this.props.post.img_url} href={this.props.post.link}/>
-        <Card.Content>{this.props.post.content}</Card.Content>
-        <Button
-         content='Like'
-         icon='heart'
-         label={{ as: 'a', basic: true, content: this.state.likes}}
-         labelPosition='right'
-         disabled={this.props.likedPostIds.includes(this.props.post.id) ? true : this.state.disabled}
-         onClick={this.handleClick}
-       />
-        <CommentFeed comments={this.props.post.comments} postId={this.props.post.id}/>
-      </Card>
+      <div className='post-outter-div'>
+        <div className='post'>
+          <img className='post-image' src={this.props.post.img_url} href={this.props.post.link}/>
+          <h3>{this.props.post.title}</h3>
+          <h4>{this.props.post.source}</h4>
+          <h4>{this.props.post.publish_date}</h4>
+          <p>{this.props.post.content}</p>
+          <button
+          onClick={this.handleClick}
+          className='like-button'
+          disabled={this.props.likedPostIds.includes(this.props.post.id) ? true : this.state.disabled}
+          >
+          LIKES: {this.state.likes}
+          </button>
+          <CommentFeed comments={postComments} postId={this.props.post.id}/>
+        </div>
+      </div>
     )
   }
 }
@@ -46,7 +50,8 @@ class Post extends React.Component {
 const mapStateToProps = (state) => ({
   currentUser: state.users.currentUser,
   userSlant: state.users.userSlant,
-  likedPostIds: state.users.likedPostIds
+  likedPostIds: state.users.likedPostIds,
+  allComments: state.comments.allComments
 })
 
 const mapDispatchToProps = (dispatch) => ({

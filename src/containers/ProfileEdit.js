@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Header, Modal } from 'semantic-ui-react';
+import { Modal } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { editProfile } from '../actions/users'
 
@@ -29,32 +29,34 @@ class ProfileEdit extends Component {
   render() {
     return (
       <Modal
-        trigger={<Button onClick={this.handleOpen}>Edit Profile</Button>}
+        trigger={<button onClick={this.handleOpen}>Edit Profile</button>}
         dimmer='inverted'
         open={this.state.modalOpen}
         onClose={this.handleClose}
         size='small'
       >
-        <Header content='Edit Profile' />
+      <form onSubmit={this.handleSubmit}>
+        <h3 className='h3'> {this.props.currentUser.username} </h3>
         <Modal.Content>
-        <h3>{this.props.currentUser.username}</h3>
           <label>Bio</label>
+          <br/>
           <input onChange={this.handleChange} type='text' placeholder='bio' name='bio' value={this.state.bio}/>
           <br/>
           <label>Image URL</label>
+          <br/>
           <input onChange={this.handleChange} type='text' placeholder='image URL' name='img_url' value={this.state.img_url}/>
           <br/>
           <label>Political Slant</label>
+          <br/>
           <select name='slant' onChange={this.handleChange}>
             <option name='slant' value={75}>Left</option>
             <option name='slant' value={50}>Center</option>
             <option name='slant' value={25}>Right</option>
           </select>
+          <br/>
+          <button onClick={this.handleSubmit}>SUBMIT</button>
         </Modal.Content>
-        <Modal.Actions>
-          <Button color='green' onClick={this.handleSubmit} inverted>SUBMIT
-          </Button>
-        </Modal.Actions>
+        </form>
       </Modal>
     )
   }
