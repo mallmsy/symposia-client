@@ -23,31 +23,31 @@ class Signup extends Component {
 
   render() {
     return(
-      <div style={{align: "center", width: "300px"}}>
-        <Form onSubmit={this.handleSubmit}>
+      <div className='form' id='login'>
+        <form onSubmit={this.handleSubmit}>
           <h1>LOGIN</h1>
-          <Form.Field>
-            <label>Username</label>
+          <div className='form-field'>
             <input
               name='username'
               placeholder='Username'
               value={this.state.username}
               onChange={this.handleChange}
-              /><br/>
-          </Form.Field>
-          <Form.Field>
-            <label>Password</label>
+              />
+          </div>
+          <div className='form-field'>
             <input
               type='password'
               name='password'
               placeholder='Password'
               value={this.state.password}
               onChange={this.handleChange}
-              /><br/>
-          </Form.Field>
+              />
+          </div>
+          <div className='form-field'>
+            <button type='submit'>SUBMIT</button>
+          </div>
 
-          <Button type='submit'>SUBMIT</Button>
-        </Form>
+        </form>
       </div>
     )
   }

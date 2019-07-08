@@ -35,28 +35,32 @@ class ProfileEdit extends Component {
         onClose={this.handleClose}
         size='small'
       >
-      <form onSubmit={this.handleSubmit}>
-        <h3 className='h3'> {this.props.currentUser.username} </h3>
-        <Modal.Content>
-          <label>Bio</label>
-          <br/>
-          <input onChange={this.handleChange} type='text' placeholder='bio' name='bio' value={this.state.bio}/>
-          <br/>
-          <label>Image URL</label>
-          <br/>
-          <input onChange={this.handleChange} type='text' placeholder='image URL' name='img_url' value={this.state.img_url}/>
-          <br/>
-          <label>Political Slant</label>
-          <br/>
-          <select name='slant' onChange={this.handleChange}>
-            <option name='slant' value={75}>Left</option>
-            <option name='slant' value={50}>Center</option>
-            <option name='slant' value={25}>Right</option>
-          </select>
-          <br/>
-          <button onClick={this.handleSubmit}>SUBMIT</button>
-        </Modal.Content>
-        </form>
+      <div className='form' id='profile'>
+        <form onSubmit={this.handleSubmit}>
+          <h2>{this.props.currentUser.username}</h2>
+          <Modal.Content>
+          <div className='form-field'>
+            <h3>Bio</h3>
+            <input onChange={this.handleChange} type='text' placeholder='bio' name='bio' value={this.state.bio}/>
+          </div>
+          <div className='form-field'>
+            <h3>Image URL</h3>
+            <input onChange={this.handleChange} type='text' placeholder='image URL' name='img_url' value={this.state.img_url}/>
+            </div>
+            <div className='form-field'>
+              <h3>Political Slant</h3>
+              <select name='slant' onChange={this.handleChange}>
+                <option name='slant' value={75}>Left</option>
+                <option name='slant' value={50}>Center</option>
+                <option name='slant' value={25}>Right</option>
+              </select>
+            </div>
+            <div className='form-field'>
+              <button onClick={this.handleSubmit}>SUBMIT</button>
+            </div>
+          </Modal.Content>
+          </form>
+        </div>
       </Modal>
     )
   }

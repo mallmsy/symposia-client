@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Button, Form } from 'semantic-ui-react';
+import { Form } from 'semantic-ui-react';
 import {connect} from 'react-redux';
 import { signUpUser } from '../actions/auth';
 
@@ -33,61 +33,57 @@ class Signup extends Component {
 
   render() {
     return (
-      <div style={{align: "center", width: "300px"}}>
-        <Form onSubmit={this.handleSubmit}>
+      <div className='form' id='sign-up'>
+        <form onSubmit={this.handleSubmit}>
           <h1>Sign Up</h1>
-          <Form.Field>
-            <label>Username</label>
+          <div className='form-field'>
             <input
               name='username'
               placeholder='Username'
               value={this.state.username}
               onChange={this.handleChange}
-              /><br/>
-          </Form.Field>
+              />
+          </div>
 
-          <Form.Field>
-            <label>Password</label>
+          <div className='form-field'>
             <input
               type='password'
               name='password'
               placeholder='Password'
               value={this.state.password}
               onChange={this.handleChange}
-              /><br/>
-          </Form.Field>
+              />
+          </div>
 
-          <Form.Field>
-          <label>Bio</label>
+          <div className='form-field'>
           <input
             name='bio'
-            placeholder='Share a bit about yourself...'
+            placeholder='Quick bio...'
             value={this.state.bio}
             onChange={this.handleChange}
-            /><br/>
-          </Form.Field>
+            />
+          </div>
 
-          <Form.Field>
-          <label>Image</label>
+          <div className='form-field'>
           <input
             name='img_url'
-            placeholder='Link to an avatar / image...'
+            placeholder='URL to avataar...'
             value={this.state.img_url}
             onChange={this.handleChange}
-            /><br/>
-          </Form.Field>
+            />
+          </div>
 
-          <Form.Field>
-          <label>Political Leaning</label>
+          <div className='form-field'>
           <Form.Select
             placeholder='Select your political leaning'
             options={this.slantOptions}
             onChange={(event, selected) => this.handleChange(event, selected.value)}
-            /><br/>
-          </Form.Field>
-
-          <Button type='submit'>Submit</Button>
-        </Form>
+            />
+          </div>
+          <div className='form-field'>
+            <button type='submit'>Submit</button>
+          </div>
+        </form>
       </div>
     )
   }

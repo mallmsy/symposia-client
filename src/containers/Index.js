@@ -1,5 +1,4 @@
 import React from 'react';
-import { Grid } from 'semantic-ui-react';
 import PostContainer from './PostContainer';
 import FilterBar from './FilterBar';
 import { connect } from 'react-redux';
@@ -9,20 +8,11 @@ const Index = ({allPosts, leftPosts, centerPosts, rightPosts}) => {
     <div>
       <FilterBar />
       <br/>
-      <Grid columns='equal' padded stackable>
-        <Grid.Column>
-          <h1>LIBERAL</h1>
-          <PostContainer posts={leftPosts} />
-        </Grid.Column>
-        <Grid.Column>
-          <h1>MODERATE</h1>
-          <PostContainer posts={centerPosts} />
-        </Grid.Column>
-        <Grid.Column>
-          <h1>CONSERVATIVE</h1>
-          <PostContainer posts={rightPosts} />
-        </Grid.Column>
-      </Grid>
+      <div className='post-container'>
+          <PostContainer column='LIBERAL' posts={leftPosts} />
+          <PostContainer column='MODERATE' posts={centerPosts} />
+          <PostContainer column='CONSERVATIVE' posts={rightPosts} />
+      </div>
     </div>
   )
 };

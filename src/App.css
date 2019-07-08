@@ -3,10 +3,16 @@
   font-family: 'Cutive Mono', monospace;
 }
 
-.title {
-  font-size: 15vw;
-  font-family: 'Righteous', cursive;
+h3 {
+  font-family: 'Cutive Mono', monospace;
+  font-size: 25%;
+}
 
+.title {
+  font-size: 12vw;
+  font-family: 'Righteous', cursive;
+  -webkit-animation: rotate-scale-up 0.65s linear both;
+	        animation: rotate-scale-up 0.65s linear both;
 }
 
 .sources-container {
@@ -14,13 +20,81 @@
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-evenly;
-  padding: 3vw;
 }
 
 .source-item {
+  list-style-type: none;
   width: 400px;
-  margin: auto;
+  height: inherit;
+  padding: 5%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.form, #sign-up {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-image: url('./background_gradient.jpg');  width: 400px;
+  height: 500px;
+  padding: 50px;
+  position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+  display: grid;
+}
+
+.form, #login {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-image: url('./background_gradient.jpg');  width: 400px;
+  height: 300px;
+  padding: 50px;
+  position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+  display: grid;
+}
+
+.form, #profile {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-image: url('./background_gradient.jpg');  width: 400px;
+  height: 500px;
+  width: 600px;
+  padding: 50px;
+  position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+  display: grid;
+}
+
+.form-field {
+  margin: 25px;
+}
+
+input {
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 80%;
+  vertical-align:middle;
+}
+
+.post-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+.post-column {
+  width: 400px;
 }
 
 .post-outter-div {
@@ -29,22 +103,23 @@
 }
 
 .post {
+  position: relative;
   width: 100%;
   background-color: white;
 }
 
 .post:hover {
-  width: 100%;
-  background-color: white;
   -webkit-animation: shadow-pop-tl 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
           animation: shadow-pop-tl 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+  z-index: 2;
 }
 
 
 .comment {
-  -webkit-animation: scale-up-ver-top .7s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-  	        animation: scale-up-ver-top .7s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: shake 0.5s;
+  animation-iteration-count: 1;
 }
+
 
 .post-image {
   max-width: 100%;
@@ -54,36 +129,6 @@
   padding: 15px;
 }
 
-.post-image:hover {
-  max-width: 100%;
-  height: auto;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 15px;
-  transform: ;
-}
-
-form {
-  height: 100%;
-  width: 100%;
-}
-
-form[class='comment-form'] {
-  padding: 3vw;
-  border-top: 1px
-}
-
-input {
-  padding: 2%;
-  width: 100%;
-}
-
-label {
-  font-family: 'Cutive Mono', monospace;
-  font-size: 1vw;
-  letter-spacing: 4px;
-  text-align: left;
-}
 
 .topic-button-container {
   display: flex;
@@ -110,7 +155,7 @@ label {
   width: 200px;
   transition-duration: 0.5s;
   overflow: hidden;
-  box-shadow: 0 5px 15px #193047;
+  box-shadow: 0 -5px #193047;
   vertical-align: middle;
 }
 
@@ -160,7 +205,6 @@ label {
   align-items: center;
   justify-content: center;
   color: white;
-
 }
 
 @keyframes App-logo-spin {
@@ -182,34 +226,19 @@ label {
  * animation scale-up-ver-top
  * ----------------------------------------
  */
-@-webkit-keyframes scale-up-ver-top {
-  0% {
-    -webkit-transform: scaleY(0.4);
-            transform: scaleY(0.4);
-    -webkit-transform-origin: 100% 0%;
-            transform-origin: 100% 0%;
-  }
-  100% {
-    -webkit-transform: scaleY(1);
-            transform: scaleY(1);
-    -webkit-transform-origin: 100% 0%;
-            transform-origin: 100% 0%;
-  }
-}
-@keyframes scale-up-ver-top {
-  0% {
-    -webkit-transform: scaleY(0.4);
-            transform: scaleY(0.4);
-    -webkit-transform-origin: 100% 0%;
-            transform-origin: 100% 0%;
-  }
-  100% {
-    -webkit-transform: scaleY(1);
-            transform: scaleY(1);
-    -webkit-transform-origin: 100% 0%;
-            transform-origin: 100% 0%;
-  }
-}
+ @keyframes shake {
+   0% { transform: translate(1px, 1px) rotate(0deg); }
+   10% { transform: translate(-1px, -2px) rotate(10deg); }
+   20% { transform: translate(-3px, 0px) rotate(1deg); }
+   30% { transform: translate(3px, 2px) rotate(0deg); }
+   40% { transform: translate(1px, -1px) rotate(1deg); }
+   50% { transform: translate(-1px, 2px) rotate(10deg); }
+   60% { transform: translate(-3px, 1px) rotate(0deg); }
+   70% { transform: translate(3px, 1px) rotate(10deg); }
+   80% { transform: translate(-1px, -1px) rotate(1deg); }
+   90% { transform: translate(1px, 2px) rotate(0deg); }
+   100% { transform: translate(1px, -2px) rotate(10deg); }
+ }
 
 @-webkit-keyframes shadow-pop-tl {
   0% {
@@ -233,5 +262,34 @@ label {
     box-shadow: -1px -1px #3e3e3e, -2px -2px #3e3e3e, -3px -3px #3e3e3e, -4px -4px #3e3e3e, -5px -5px #3e3e3e, -6px -6px #3e3e3e, -7px -7px #3e3e3e, -8px -8px #3e3e3e;
     -webkit-transform: translateX(8px) translateY(8px);
             transform: translateX(8px) translateY(8px);
+  }
+}
+
+@-webkit-keyframes rotate-scale-up {
+  0% {
+    -webkit-transform: scale(1) rotateZ(0);
+            transform: scale(1) rotateZ(0);
+  }
+  50% {
+    -webkit-transform: scale(2) rotateZ(180deg);
+            transform: scale(2) rotateZ(180deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotateZ(360deg);
+            transform: scale(1) rotateZ(360deg);
+  }
+}
+@keyframes rotate-scale-up {
+  0% {
+    -webkit-transform: scale(1) rotateZ(0);
+            transform: scale(1) rotateZ(0);
+  }
+  50% {
+    -webkit-transform: scale(2) rotateZ(180deg);
+            transform: scale(2) rotateZ(180deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotateZ(360deg);
+            transform: scale(1) rotateZ(360deg);
   }
 }

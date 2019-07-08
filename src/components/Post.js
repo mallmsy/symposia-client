@@ -1,5 +1,4 @@
 import React from 'react';
-import { Card, Image, Button } from 'semantic-ui-react';
 import CommentFeed from './CommentFeed';
 import { connect } from 'react-redux';
 import { addLike } from '../actions/likes'

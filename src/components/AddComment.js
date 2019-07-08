@@ -22,7 +22,7 @@ class AddComment extends React.Component {
   render() {
     return (
       <form className='comment-form' onSubmit={(e) => this.handleSubmit(e, this.state.content)}>
-        <label>Add Comment:</label>
+        <p>Add Comment:</p>
         <input onChange={this.handleChange} name='content' value={this.state.content} type='text'/>
         <button onClick={this.handleSubmit}>add</button>
       </form>

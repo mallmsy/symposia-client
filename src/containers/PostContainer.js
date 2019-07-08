@@ -1,10 +1,10 @@
 import React from 'react';
 import Post from '../components/Post';
-// import { Segment } from 'semantic-ui-react';
 
-const PostContainer = ({posts}) => {
+const PostContainer = ({posts, column}) => {
   return(
-    <div className='post-container'>
+    <div className='post-column' >
+    <h1>{column}</h1>
       {posts.map(post => <Post key={post.id} post={post}/>)}
     </div>
   )

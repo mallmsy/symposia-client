@@ -17,9 +17,9 @@ const HeaderBlock = () => {
       </div>
 
       <div className='sources-container'>
-        <div className='source-item'>
+        <div>
           <h4>LIBERAL SOURCES</h4>
-          <ul>
+          <ul className='source-item'>
             <li>CNN</li>
             <li>The New York Times</li>
             <li>CBS News</li>
@@ -28,9 +28,9 @@ const HeaderBlock = () => {
           </ul>
         </div>
 
-        <div className='source-item'>
+        <div>
           <h4>MODERATE SOURCES</h4>
-          <ul>
+          <ul className='source-item'>
             <li>BBC News</li>
             <li>The Wall Street Journal</li>
             <li>Associated Press</li>
@@ -40,9 +40,9 @@ const HeaderBlock = () => {
           </ul>
         </div>
 
-        <div className='source-item'>
+        <div>
           <h4>CONSERVATIVE SOURCES</h4>
-          <ul>
+          <ul className='source-item'>
             <li>Fox News</li>
             <li>Breitbart News</li>
             <li>National Review</li>
