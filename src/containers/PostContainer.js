@@ -1,6 +1,6 @@
 import React from 'react';
 import Post from '../components/Post';
-import { Segment } from 'semantic-ui-react';
+// import { Segment } from 'semantic-ui-react';
 
 const PostContainer = ({posts}) => {
   return(

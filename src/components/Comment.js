@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 class Comment extends React.Component {
 
   state = {
-    content: this.props.comment.content
+    content: this.props.comment.content,
+    editing: false
   }
 
   handleChange = (e) => {
@@ -14,15 +15,25 @@ class Comment extends React.Component {
     })
   }
 
+  handleClick = (e) => {
+    this.setState({editing: !this.state.editing})
+    if (e.target.innerText === 'save') {
+      this.props.updateComment(e, this.props.comment, this.state.content)
+    } else {
+      return null
+    }
+  }
 
 
   render() {
     return (
-      <Feed.Event>
+      <Feed.Event className='comment'>
         <Feed.Label image={this.props.comment.user.img_url} />
+        <br/>
         <Feed.Label content={this.props.comment.user.username} />
         <Feed.Content>
-        {this.props.editing
+        <br/>
+        {this.state.editing
         ?
         <input onChange={this.handleChange} type='text' name='content' value={this.state.content}/>
         :
@@ -33,7 +44,7 @@ class Comment extends React.Component {
         { this.props.comment.user.id === this.props.currentUser.id
           ?
           <>
-            <button onClick={(e) => this.props.handleClick(e, this.props.comment, this.state.content)}>{this.props.editing ? 'save' : 'edit'}</button>
+            <button onClick={this.handleClick}>{this.state.editing ? 'save' : 'edit'}</button>
             <button onClick={(e) => this.props.handleRemove(e, this.props.comment.id)}>delete</button>
           </>
           :

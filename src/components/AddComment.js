@@ -14,7 +14,7 @@ class AddComment extends React.Component {
   }
 
   handleSubmit = (e, content) => {
-    this.props.addComment(e, content)
+    this.props.addComment(e, this.state.content)
     this.setState({content: ''})
   }
 
@@ -24,7 +24,7 @@ class AddComment extends React.Component {
       <form className='comment-form' onSubmit={(e) => this.handleSubmit(e, this.state.content)}>
         <label>Add Comment:</label>
         <input onChange={this.handleChange} name='content' value={this.state.content} type='text'/>
-        <input type='submit'/>
+        <button onClick={this.handleSubmit}>add</button>
       </form>
     );
   }

@@ -10,9 +10,8 @@ import { updateComment, removeComment, createComment } from '../actions/comments
 class CommentFeed extends Component {
 
   state = {
-    comments: this.props.comments,
-    editing: false
-  }
+    comments: this.props.comments
+    }
 
   handleChange = (e) => {
     this.setState({
@@ -28,17 +27,7 @@ class CommentFeed extends Component {
   }
 
   updateComment = (e, comment, content) => {
-    if (comment.user.id === this.props.currentUser.id) {
-      this.setState({editing: !this.state.editing})
-      if (e.target.innerText === 'save') {
-        this.props.updateComment(comment.id, content)
-        this.setState({editing: false})
-      } else {
-        return null
-      }
-    } else {
-      return null
-    }
+    this.props.updateComment(comment.id, content)
   }
 
   addComment = (e, content) => {
@@ -75,7 +64,7 @@ class CommentFeed extends Component {
         />*/}
         {this.state.comments
           ?
-          this.state.comments.map(comment => <Comment key={comment.id} editing={this.state.editing} comment={comment} handleClick={this.updateComment} handleRemove={this.removeComment} />)
+          this.state.comments.map(comment => <Comment key={comment.id} comment={comment} updateComment={this.updateComment} handleRemove={this.removeComment} />)
           : null}
       </Feed>
     );

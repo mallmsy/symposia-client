@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Grid, Image, Feed, Modal } from 'semantic-ui-react'
+import { Grid, Image, Feed } from 'semantic-ui-react'
 import LikedPost from '../components/LikedPost'
 import ProfileEdit from './ProfileEdit'
 

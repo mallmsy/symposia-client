@@ -9,7 +9,7 @@ const Index = ({allPosts, leftPosts, centerPosts, rightPosts}) => {
     <div>
       <FilterBar />
       <br/>
-      <Grid columns='equal' padded>
+      <Grid columns='equal' padded stackable>
         <Grid.Column>
           <h1>LIBERAL</h1>
           <PostContainer posts={leftPosts} />

@@ -3,20 +3,25 @@ import { Header, Icon, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { filterPosts, fetchNewArticles } from '../actions/posts';
 
+// CATEGORIES = ["CLIMATE", "IMMIGRATION", "2020", "NATIONAL+DEBT", "HEALTH+CARE", "EDUCATION", "LGBTQ" ]
+
+
 const FilterBar = ({filterPosts, fetchNewArticles}) => {
   return (
     <div className='page-header'>
-      <Header as='h3' icon textAlign='center'>
-          <Header.Content>SYMPOSIA</Header.Content>
-         <Icon name='star outline' circular />
-         <Header.Content>Filter By Topic</Header.Content>
-         <br/>
-         <button className='topic-button' onClick={() => filterPosts("IMMIGRATION")}>IMMIGRATION</button>
-         <button className='topic-button' onClick={() => filterPosts("NATIONAL+DEBT")}>NATIONAL DEBT</button>
-         <button className='topic-button' onClick={() => filterPosts("2020")}>2020 ELECTION</button>
-         <button className='topic-button' onClick={() => filterPosts("ABORTION")}>ABORTION</button>
-         <button className='topic-button' onClick={() => filterPosts("CLIMATE")}>CLIMATE</button>
-         <button className='topic-button' onClick={() => filterPosts("NONE")}>ALL POSTS</button>
+    <h1 className='title'>Symposia</h1>
+      <Header textAlign='center'>
+         <h1>Filter By Topic</h1>
+         <div className='topic-button-container'>
+           <button className='topic-button' onClick={() => filterPosts("IMMIGRATION")}>IMMIGRATION</button>
+           <button className='topic-button' onClick={() => filterPosts("WALL+STREET")}>WALL STREET</button>
+           <button className='topic-button' onClick={() => filterPosts("2020")}>2020 ELECTION</button>
+           <button className='topic-button' onClick={() => filterPosts("HEALTH+CARE")}>HEALTH CARE</button>
+           <button className='topic-button' onClick={() => filterPosts("CLIMATE")}>CLIMATE</button>
+           <button className='topic-button' onClick={() => filterPosts("EDUCATION")}>EDUCATION</button>
+           <button className='topic-button' onClick={() => filterPosts("LGBTQ")}>LGBTQ+</button>
+           <button className='topic-button' onClick={() => filterPosts("NONE")}>ALL POSTS</button>
+         </div>
        </Header>
        <Header as="h4" textAlign='center'>
         <Header.Content>
