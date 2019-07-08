@@ -2,8 +2,8 @@ import React from 'react';
 
 const HeaderBlock = () => {
   return (
-    <div>
-      <h1 className='title'>Symposia</h1>
+    <div className='methodology'>
+      <h1 className='title' id='methodology'>Symposia</h1>
       <div>
         <h3>Escape The Echo Chamber</h3>
         <p>ECHO CHAMBER ech·o cham·ber /ˈekō ˌCHāmbər/</p>

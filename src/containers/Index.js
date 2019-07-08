@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 const Index = ({allPosts, leftPosts, centerPosts, rightPosts}) => {
   return (
-    <div>
+    <div className='index'>
       <FilterBar />
       <br/>
       <div className='post-container'>
@@ -20,9 +20,9 @@ const Index = ({allPosts, leftPosts, centerPosts, rightPosts}) => {
 const mapStateToProps = state => {
   return{
     allPosts: state.posts.allPosts,
-    leftPosts: state.posts.leftPosts,
-    centerPosts: state.posts.centerPosts,
-    rightPosts: state.posts.rightPosts
+    leftPosts: state.posts.leftPosts.sort((a,b) => a.publish_date > b.publish_date ? -1 : 1),
+    centerPosts: state.posts.centerPosts.sort((a,b) => a.publish_date > b.publish_date ? -1 : 1),
+    rightPosts: state.posts.rightPosts.sort((a,b) => a.publish_date > b.publish_date ? -1 : 1)
   }
 }
 

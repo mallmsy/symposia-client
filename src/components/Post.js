@@ -6,7 +6,7 @@ import { addLike } from '../actions/likes'
 class Post extends React.Component {
 
   state = {
-    likes: this.props.post.likes && this.props.post.likes.length,
+    likes: this.props.post.likes ? this.props.post.likes.length : 0,
     disabled: false
   }
 

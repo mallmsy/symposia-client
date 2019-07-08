@@ -34,7 +34,6 @@ class Nav extends PureComponent {
           ?
           <>
             <Menu.Item>
-              <h4>Session Likes</h4>
               <SlantMeter slant={this.props.userSlant} />
             </Menu.Item>
             <Menu.Item>
@@ -43,16 +42,16 @@ class Nav extends PureComponent {
               </NavLink>
             </Menu.Item>
             <Menu.Item>
-              <Link> <Button circular color='purple' onClick={this.handleClick}>logout</Button> </Link>
+              <Link> <Button color='purple' onClick={this.handleClick}>logout</Button> </Link>
             </Menu.Item>
           </>
           :
           <>
           <Menu.Item>
-            <NavLink to={"/login"}> <Button circular color='blue'>login</Button> </NavLink>
+            <NavLink to={"/login"}> <Button color='blue'>login</Button> </NavLink>
           </Menu.Item>
           <Menu.Item>
-            <NavLink to={"/sign-up"}> <Button circular color='red'>sign up</Button> </NavLink>
+            <NavLink to={"/sign-up"}> <Button color='red'>sign up</Button> </NavLink>
           </Menu.Item>
           </>
         }
