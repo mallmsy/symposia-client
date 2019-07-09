@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import Comment from './Comment';
 import AddComment from './AddComment';
 import { Feed } from 'semantic-ui-react';
-// import { ActionCable } from 'react-actioncable-provider'
+import { ActionCable } from 'react-actioncable-provider'
 import { connect } from 'react-redux';
 import { updateComment, removeComment, createComment } from '../actions/comments';
-
 
 class CommentFeed extends Component {
 
@@ -47,26 +46,47 @@ class CommentFeed extends Component {
           content: content
         })
       })
-      .then(res => res.json())
-      .then(commentObj => this.setState({comments: [commentObj, ...this.state.comments]}))
     }
   }
 
-
+  handleSocketResponse = data => {
+    switch(data.type) {
+      case 'ADD_COMMENT':
+        console.log("socket response add comment", data.payload)
+        this.setState({ comments: [data.payload, ...this.state.comments] })
+        break;
+      case 'REMOVE_COMMENT':
+        this.removeComment(null, data.payload.id)
+        break;
+      default:
+        console.log("inside socket response", data)
+    }
+  }
 
   render() {
     return (
       <Feed>
-        <AddComment addComment={this.addComment} postId={this.props.postId}/>
+        <AddComment
+        addComment={this.addComment}
+        postId={this.props.postId}/>
+
         <br/>
-        {/*<ActionCable
+
+        <ActionCable
         channel={{channel: 'CommentsChannel', post_id: this.props.postId, beef: 'steak'}}
         onReceived={this.handleSocketResponse}
-        />*/}
+        />
+
         {this.state.comments
           ?
-          this.state.comments.map(comment => <Comment key={comment.id} comment={comment} updateComment={this.updateComment} handleRemove={this.removeComment} />)
-          : null}
+          this.state.comments.map(comment =>
+            <Comment
+            key={comment.id}
+            comment={comment}
+            updateComment={this.updateComment}
+            handleRemove={this.removeComment} />)
+
+            : null}
       </Feed>
     );
   }
@@ -76,7 +96,6 @@ class CommentFeed extends Component {
 const mapStateToProps = (state) => ({
   currentUser: state.users.currentUser
 })
-
 
 const mapDispatchToProps = (dispatch) => ({
   updateComment: (commentId, content) => dispatch(updateComment(commentId, content)),

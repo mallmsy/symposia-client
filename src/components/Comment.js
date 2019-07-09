@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 class Comment extends React.Component {
 
   state = {
+    user: this.props.comment.user ? this.props.comment.user : null,
     content: this.props.comment.content,
     editing: false
   }
@@ -28,9 +29,9 @@ class Comment extends React.Component {
   render() {
     return (
       <Feed.Event className='comment'>
-        <Feed.Label image={this.props.comment.user.img_url} />
+        <Feed.Label image={this.state.user.img_url} />
         <br/>
-        <Feed.Label content={this.props.comment.user.username} />
+        <Feed.Label content={this.state.user.username} />
         <Feed.Content>
         <br/>
         {this.state.editing
@@ -41,7 +42,7 @@ class Comment extends React.Component {
           {this.state.content}
         </Feed.Summary>
         }
-        { this.props.comment.user.id === this.props.currentUser.id
+        { this.state.user.id === this.props.currentUser.id
           ?
           <>
             <button onClick={this.handleClick}>{this.state.editing ? 'save' : 'edit'}</button>
