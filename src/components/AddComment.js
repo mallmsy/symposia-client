@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createComment } from '../actions/comments'
 
 class AddComment extends React.Component {
   state = {
@@ -24,7 +23,7 @@ class AddComment extends React.Component {
       <form className='comment-form' onSubmit={(e) => this.handleSubmit(e, this.state.content)}>
         <p>Add Comment:</p>
         <input onChange={this.handleChange} name='content' value={this.state.content} type='text'/>
-        <button onClick={this.handleSubmit}>add</button>
+        <button className='cute-button' onClick={this.handleSubmit}>add</button>
       </form>
     );
   }

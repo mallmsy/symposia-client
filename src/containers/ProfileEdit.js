@@ -29,7 +29,7 @@ class ProfileEdit extends Component {
   render() {
     return (
       <Modal
-        trigger={<button onClick={this.handleOpen}>Edit Profile</button>}
+        trigger={<button className='cute-button' onClick={this.handleOpen}>edit profile</button>}
         dimmer='inverted'
         open={this.state.modalOpen}
         onClose={this.handleClose}
@@ -56,7 +56,7 @@ class ProfileEdit extends Component {
               </select>
             </div>
             <div className='form-field'>
-              <button onClick={this.handleSubmit}>SUBMIT</button>
+              <button className='cute-button' onClick={this.handleSubmit}>SUBMIT</button>
             </div>
           </Modal.Content>
           </form>

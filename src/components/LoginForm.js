@@ -1,6 +1,5 @@
-import React, {Component} from 'react';
-import { Button, Form } from 'semantic-ui-react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { loginUser } from '../actions/auth';
 
 class Signup extends Component {
@@ -44,9 +43,8 @@ class Signup extends Component {
               />
           </div>
           <div className='form-field'>
-            <button type='submit'>SUBMIT</button>
+            <button className='cute-button' type='submit'>SUBMIT</button>
           </div>
-
         </form>
       </div>
     )

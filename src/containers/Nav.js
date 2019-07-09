@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import {connect} from 'react-redux';
 import { NavLink, Link } from 'react-router-dom';
-import { Menu, Button, Image } from 'semantic-ui-react';
+import { Menu, Image } from 'semantic-ui-react';
 import { logoutUser } from '../actions/auth';
 import SlantMeter from '../components/SlantMeter'
 
@@ -42,16 +42,16 @@ class Nav extends PureComponent {
               </NavLink>
             </Menu.Item>
             <Menu.Item>
-              <Link> <Button color='purple' onClick={this.handleClick}>logout</Button> </Link>
+              <Link> <button className='cute-button' onClick={this.handleClick}>logout</button> </Link>
             </Menu.Item>
           </>
           :
           <>
           <Menu.Item>
-            <NavLink to={"/login"}> <Button color='blue'>login</Button> </NavLink>
+            <NavLink to={"/login"}> <button className='cute-button'>login</button> </NavLink>
           </Menu.Item>
           <Menu.Item>
-            <NavLink to={"/sign-up"}> <Button color='red'>sign up</Button> </NavLink>
+            <NavLink to={"/sign-up"}> <button className='cute-button'>sign up</button> </NavLink>
           </Menu.Item>
           </>
         }

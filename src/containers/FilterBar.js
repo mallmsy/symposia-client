@@ -1,5 +1,4 @@
 import React from 'react';
-import { Header, Icon, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { filterPosts, fetchNewArticles } from '../actions/posts';
 
@@ -19,13 +18,9 @@ const FilterBar = ({filterPosts, fetchNewArticles}) => {
            <button className='topic-button' onClick={() => filterPosts("CLIMATE")}>CLIMATE</button>
            <button className='topic-button' onClick={() => filterPosts("EDUCATION")}>EDUCATION</button>
            <button className='topic-button' onClick={() => filterPosts("LGBTQ")}>LGBTQ+</button>
-           <button className='topic-button' onClick={() => filterPosts("NONE")}>ALL POSTS</button>
+           <button className='topic-button' id='all-topics' onClick={() => filterPosts("NONE")}>ALL POSTS</button>
       </div>
-       <Header as="h4" textAlign='center'>
-        <Header.Content>
-        <Button onClick={() => fetchNewArticles()}>Get New Articles</Button>
-        </Header.Content>
-      </Header>
+        {/*<button onClick={() => fetchNewArticles()}>Get New Articles</button>*/}
     </div>
   );
 }

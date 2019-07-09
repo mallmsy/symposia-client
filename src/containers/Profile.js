@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Grid, Image, Feed } from 'semantic-ui-react'
 import LikedPost from '../components/LikedPost'
 import ProfileEdit from './ProfileEdit'
 
@@ -9,24 +8,24 @@ const Profile = ({history, currentUser, userSlant, likedPostIds, allPosts, editP
   let showPosts = likedPosts.slice(likedPosts.length -3, likedPosts.length)
 
   return (
+    <div className='profile-header'>
+      <div className='post-container'>
+          <div className='post-column'>
+            <img src={currentUser.img_url} alt={currentUser.username} />
+            <h1>{currentUser.username}</h1>
+            <p>{currentUser.bio}</p>
+            <p>User Slant: {userSlant}</p>
+            <ProfileEdit />
+          </div>
 
-    <Grid divided='vertically'>
-      <Grid.Row className='profile-header' columns={2}>
-        <Grid.Column>
-          <Image centered src={currentUser.img_url} />
-          <h1>{currentUser.username}</h1>
-          <p>{currentUser.bio}</p>
-          <p>User Slant: {userSlant}</p>
-          <ProfileEdit />
-        </Grid.Column>
-        <Grid.Column>
-        Recently Liked Posts
-          <Feed>
-          {showPosts.map(post => <LikedPost post={post} />)}
-          </Feed>
-        </Grid.Column>
-      </Grid.Row>
-    </Grid>
+          <div className='post-column'>
+          <h2>Recently Liked Posts</h2>
+            <div>
+            {showPosts.map(post => <LikedPost post={post} />)}
+            </div>
+          </div>
+      </div>
+    </div>
   );
 }
 

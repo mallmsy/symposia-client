@@ -5,10 +5,7 @@ export function fetchPosts(){
     return fetch(BASE_URL+"posts")
     .then(res => res.json())
     .then(posts => {
-      return (
-        dispatch({type: "FETCH_POSTS", payload: posts}),
-        {/*dispatch({type: "LOAD_COMMENTS", payload: posts})*/}
-      )
+      return (dispatch({type: "FETCH_POSTS", payload: posts}))
     })
   }
 }

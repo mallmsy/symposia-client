@@ -45,8 +45,8 @@ class Comment extends React.Component {
         { this.state.user.id === this.props.currentUser.id
           ?
           <>
-            <button onClick={this.handleClick}>{this.state.editing ? 'save' : 'edit'}</button>
-            <button onClick={(e) => this.props.handleRemove(e, this.props.comment.id)}>delete</button>
+            <button className='cute-button' onClick={this.handleClick}>{this.state.editing ? 'save' : 'edit'}</button>
+            <button className='cute-button' onClick={(e) => this.props.handleRemove(e, this.props.comment.id)}>delete</button>
           </>
           :
           null
@@ -55,7 +55,6 @@ class Comment extends React.Component {
      </Feed.Event>
     );
   }
-
 }
 
 const mapStateToProps = (state) => ({

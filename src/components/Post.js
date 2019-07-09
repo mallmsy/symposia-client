@@ -7,7 +7,7 @@ class Post extends React.Component {
 
   state = {
     likes: this.props.post.likes ? this.props.post.likes.length : 0,
-    disabled: false
+    disabled: this.props.isDisabled
   }
 
   handleClick = () => {
@@ -21,25 +21,27 @@ class Post extends React.Component {
 
   render() {
     const postComments = this.props.allComments.filter(comment => comment.post_id === this.props.post.id)
-    // console.log("comments inside post render", postComments)
 
     return(
       <div className='post-outter-div'>
         <div className='post'>
-        <a href={this.props.post.link} target='_blank'>
-          <img className='post-image' src={this.props.post.img_url ? this.props.post.img_url : '../post_placeholder_img.jpg' }/>
+        <a href={this.props.post.link} target='_blank' rel="noopener noreferrer">
+          <img className='post-image' alt={this.props.post.title} src={this.props.post.img_url ? this.props.post.img_url : '../post_placeholder_img.jpg' }/>
         </a>
+        <div className='post-content'>
           <h3>{this.props.post.title}</h3>
           <h4>{this.props.post.source}</h4>
           <h4>{this.props.post.publish_date}</h4>
           <p>{this.props.post.content}</p>
+        </div>
           <button
           onClick={this.handleClick}
-          className='like-button'
-          disabled={this.props.likedPostIds.includes(this.props.post.id) ? true : this.state.disabled}
+          className='cute-button'
+          disabled={this.state.disabled}
           >
-          LIKES: {this.state.likes}
+          {this.state.disabled ? "liked" : "like"}
           </button>
+          <p>favorited by {this.state.likes} users</p>
           <CommentFeed comments={postComments} postId={this.props.post.id}/>
         </div>
       </div>

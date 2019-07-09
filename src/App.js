@@ -1,12 +1,14 @@
-import React, { Component, createRef } from 'react';
+import React, { createRef } from 'react';
 import './App.css';
 import { Route } from 'react-router-dom';
 import { Sticky } from 'semantic-ui-react';
+
 ////
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { autoLoginUser } from './actions/auth';
 import { fetchPosts } from './actions/posts';
+import { fetchNewArticles } from './actions/posts';
 import { fetchComments } from './actions/comments';
 
 ////
@@ -16,16 +18,18 @@ import LoginForm from './components/LoginForm';
 import Index from './containers/Index';
 import Home from './containers/Home';
 import Profile from './containers/Profile';
-import ProfileEdit from './containers/ProfileEdit';
 import Nav from './containers/Nav';
 
 class App extends React.Component {
   contextRef = createRef()
 
   componentDidMount = () => {
+    // this.props.fetchNewArticles()
     this.props.autoLoginUser()
     this.props.fetchPosts()
     this.props.fetchComments()
+
+    // window.setInterval(this.props.fetchNewArticles, 300000)
   }
 
   render(){
@@ -45,14 +49,14 @@ class App extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  currentUser: state.users.currentUser,
-  leftPosts: state.posts.leftPosts
+  currentUser: state.users.currentUser
 })
 
 const mapDispatchToProps = (dispatch) => ({
   autoLoginUser: () => dispatch(autoLoginUser()),
   fetchPosts: () => dispatch(fetchPosts()),
-  fetchComments: () => dispatch(fetchComments())
+  fetchComments: () => dispatch(fetchComments()),
+  fetchNewArticles: () => dispatch(fetchNewArticles())
 })
 
 

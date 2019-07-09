@@ -4,7 +4,7 @@ import AddComment from './AddComment';
 import { Feed } from 'semantic-ui-react';
 import { ActionCable } from 'react-actioncable-provider'
 import { connect } from 'react-redux';
-import { updateComment, removeComment, createComment } from '../actions/comments';
+import { updateComment, removeComment } from '../actions/comments';
 
 class CommentFeed extends Component {
 
@@ -73,7 +73,7 @@ class CommentFeed extends Component {
         <br/>
 
         <ActionCable
-        channel={{channel: 'CommentsChannel', post_id: this.props.postId, beef: 'steak'}}
+        channel={{channel: 'CommentsChannel', post_id: this.props.postId}}
         onReceived={this.handleSocketResponse}
         />
 
@@ -100,7 +100,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   updateComment: (commentId, content) => dispatch(updateComment(commentId, content)),
   removeComment: (commentId) => dispatch(removeComment(commentId)),
-  // createComment: (content, postId, userId) => dispatch(createComment(content, postId, userId))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CommentFeed);
