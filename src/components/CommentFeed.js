@@ -58,6 +58,7 @@ class CommentFeed extends Component {
     return (
       <Feed>
         <AddComment addComment={this.addComment} postId={this.props.postId}/>
+        <br/>
         {/*<ActionCable
         channel={{channel: 'CommentsChannel', post_id: this.props.postId, beef: 'steak'}}
         onReceived={this.handleSocketResponse}
