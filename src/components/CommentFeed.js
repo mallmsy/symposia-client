@@ -31,21 +31,25 @@ class CommentFeed extends Component {
 
   addComment = (e, content) => {
     e.preventDefault()
-    let token = localStorage.token
-    if (token) {
-      return fetch("http://localhost:3000/comments", {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({
-          post_id: this.props.postId,
-          user_id: this.props.currentUser.id,
-          content: content
-        })
-      })
+    if (content === "") {
+      alert("comment can't be blank!")
+    } else {
+        let token = localStorage.token
+        if (token) {
+          return fetch("http://localhost:3000/comments", {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json',
+              'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({
+              post_id: this.props.postId,
+              user_id: this.props.currentUser.id,
+              content: content
+            })
+          })
+        }
     }
   }
 
