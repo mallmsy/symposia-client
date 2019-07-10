@@ -1,4 +1,8 @@
+/* RED: #ff0000 old : ff0000
+BLUE: #00b8ff old : 00b4fa */
+
 .App {
+  width: 100%;
   text-align: center;
   font-family: 'Cutive Mono', monospace;
   color: #3e3e3e;
@@ -23,6 +27,60 @@ input {
   width: 80%;
   vertical-align:middle;
 }
+
+/* NAV BAR */
+
+#nav {
+  width: 100%;
+  overflow: hidden;
+  height: 5vw;
+  background-color: white;
+}
+
+#nav-btn {
+  width: 100%;
+}
+
+.avatar {
+  width: 5vw;
+  padding: 10px;
+}
+
+.nav-item {
+  width: auto;
+  height: 100%;
+  text-align: center;
+  align-items: center;
+  display: flex;
+}
+
+#left {
+  float: left;
+  margin-left: 10px;
+}
+
+#right {
+  float: right;
+  margin-right: 10px;
+}
+
+/* SLANT METER */
+
+.slant-meter {
+  position: relative;
+  height: 3vw;
+  width: 100%;
+  background: #ff0000;
+}
+
+.filler {
+  background: #3093ce;
+  height: 100%;
+  transition: width .2s ease-in;
+}
+
+
+/* FORMS */
 
 .form-field {
   margin: 25px;
@@ -60,6 +118,16 @@ input {
   background-size: contain;
 }
 
+.page-header {
+  min-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
 #index-title {
     text-shadow: -1px -1px #3e3e3e, -2px -2px #3e3e3e, -3px -3px #3e3e3e, -4px -4px #3e3e3e, -5px -5px #3e3e3e, -6px -6px #3e3e3e, -7px -7px #3e3e3e, -8px -8px #3e3e3e, -9px -9px #3e3e3e;
 }
@@ -68,7 +136,8 @@ input {
 /* METHODOLOGY PAGE */
 
 .header {
-  background-color: #e93e33;
+  background-color: #ff0000;
+
   height: 100%;
   color: white;
 }
@@ -118,7 +187,7 @@ input {
 /* LOGIN / SIGN UP PAGES */
 #sign-up {
   width: 400px;
-  height: 500px;
+  height: 450px;
 }
 
 #login {
@@ -132,6 +201,32 @@ input {
 #profile {
   height: 500px;
   width: 600px;
+}
+
+.profile-header {
+  background-image: url('./background_gradient.jpg');
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-color: #282c34;
+  min-height: 50vh;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.liked-feed-item {
+  margin: 15px;
+}
+
+.feed-image {
+  width: 25%;
+  padding: 5px;
+  float: left;
+  border-radius: 50px;
 }
 
 
@@ -177,17 +272,6 @@ input {
   padding: 10px;
 }
 
-.liked-feed-item {
-  margin: 15px;
-}
-
-.feed-image {
-  width: 25%;
-  padding: 5px;
-  float: left;
-  border-radius: 50px;
-}
-
 /* COMMENTS */
 
 .comment {
@@ -195,7 +279,7 @@ input {
   animation-iteration-count: 1;
 }
 
-/* TOPIC FILTER BUTTONS */
+/* BUTTONS */
 
 button {
   text-align: center;
@@ -207,6 +291,7 @@ button {
 .cute-button {
   background-color: #bf33e9;
   font-family: 'Righteous', cursive;
+  margin: 5%;
   color: white;
   box-shadow: -1px -1px #3e3e3e, -2px -2px #3e3e3e, -3px -3px #3e3e3e, -4px -4px #3e3e3e;
 }
@@ -215,7 +300,6 @@ button {
   background-color: #dcb9e7;
   color: gray;
   transition: background-color .5s ease-in;
-
 }
 
 .topic-button-container {
@@ -229,7 +313,7 @@ button {
 .topic-button {
   text-transform: uppercase;
   letter-spacing: 10px;
-  background-color: #00b5fa;
+  background-color: #3093ce;
   background-size: contain;
   border: none;
   color: #fff;
@@ -244,7 +328,7 @@ button {
 }
 
 #all-topics {
-  background-color: #e93e33;
+  background-color: #ff0000;
 }
 
 #all-topics:hover {
@@ -257,45 +341,6 @@ button {
   color: #3e3e3e;
   transform: rotate(0deg);
   transition-duration: 0.5s;
-}
-
-
-.slant-meter {
-  position: relative;
-  height: 2vw;
-  width: 25vw;
-  background: #ff0019;
-}
-
-.filler {
-  background: #00b5fa;
-  height: 100%;
-  transition: width .2s ease-in;
-}
-
-.page-header {
-  min-height: 30vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.profile-header {
-  background-image: url('./background_gradient.jpg');
-  background-size: cover;
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-color: #282c34;
-  min-height: 50vh;
-  padding: 5%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
 }
 
  @keyframes shake {

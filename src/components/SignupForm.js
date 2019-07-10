@@ -7,7 +7,6 @@ class Signup extends Component {
   state = {
     username: "",
     password: "",
-    img_url: "",
     bio: "",
     slant: 0
   }
@@ -60,15 +59,6 @@ class Signup extends Component {
             name='bio'
             placeholder='Quick bio...'
             value={this.state.bio}
-            onChange={this.handleChange}
-            />
-          </div>
-
-          <div className='form-field'>
-          <input
-            name='img_url'
-            placeholder='URL to avataar...'
-            value={this.state.img_url}
             onChange={this.handleChange}
             />
           </div>

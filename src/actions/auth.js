@@ -1,4 +1,9 @@
 export function signUpUser (user, history) {
+  let finalNum;
+  const num = Math.floor(Math.random() * 37) + 1
+  num < 10 ? finalNum = '0' + num : finalNum = num
+  const url = `https://cdn0.iconfinder.com/data/icons/calico-cat-emoticon-filled/64/cute_cat_kitten_face_avatar_calico-${finalNum}-512.png`
+
   return function(dispatch) {
     return fetch("http://localhost:3000/users", {
       method: "POST",
@@ -6,7 +11,15 @@ export function signUpUser (user, history) {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       },
-      body: JSON.stringify({user})
+      body: JSON.stringify({
+        user: {
+          username: user.username,
+          password: user.password,
+          bio: user.bio,
+          slant: user.slant,
+          img_url: url
+        }
+      })
     })
       .then(resp => resp.json())
       .then(data => {

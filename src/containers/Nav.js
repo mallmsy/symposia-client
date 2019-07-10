@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import {connect} from 'react-redux';
 import { NavLink, Link } from 'react-router-dom';
-import { Menu, Image } from 'semantic-ui-react';
 import { logoutUser } from '../actions/auth';
 import SlantMeter from '../components/SlantMeter'
 
@@ -16,47 +15,51 @@ class Nav extends PureComponent {
 
   render() {
     return (
-      <Menu stackable>
-      <Menu.Item>
-      {this.props.currentUser.username
-      ?
-        <Link to={'/index'}>
-          <Image src={"https://cdn0.iconfinder.com/data/icons/white-cat-emoticon-filled/64/cute_cat_kitten_face_avatar-35-512.png"} avatar/>
-        </Link>
-      :
-      <Link to={'/'}>
-        <Image src={"https://cdn0.iconfinder.com/data/icons/white-cat-emoticon-filled/64/cute_cat_kitten_face_avatar-35-512.png"} avatar/>
-      </Link>
-      }
-        </Menu.Item>
-        <Menu.Menu position='right'>
+      <>
+      <div id='nav'>
+        <div id='left' className='nav-item'>
+          {this.props.currentUser.username
+          ?
+            <Link to={'/index'}>
+              <img
+              className='avatar'
+              src={'../logo.png'}
+              alt='symposia-logo'/>
+            </Link>
+          :
+          <Link to={'/'}>
+            <img
+            className='avatar'
+            src={'../logo.png'}
+            alt='symposia-logo'/>
+          </Link>
+          }
+        </div>
+
         {this.props.currentUser.username
           ?
-          <>
-            <Menu.Item>
-              <SlantMeter slant={this.props.userSlant} />
-            </Menu.Item>
-            <Menu.Item>
-              <NavLink to={`/profile/${this.props.currentUser.username}`}>
-                <Image src={this.props.currentUser.img_url} avatar/>
-              </NavLink>
-            </Menu.Item>
-            <Menu.Item>
-              <Link> <button className='cute-button' onClick={this.handleClick}>logout</button> </Link>
-            </Menu.Item>
-          </>
+          <div id='right' className='nav-item'>
+            <NavLink to={`/profile/${this.props.currentUser.username}`}>
+              <img
+              className='avatar'
+              src={this.props.currentUser.img_url}/>
+            </NavLink>
+
+            <Link> <button id='nav-btn' className='cute-button' onClick={this.handleClick}>logout</button> </Link>
+          </div>
           :
           <>
-          <Menu.Item>
-            <NavLink to={"/login"}> <button className='cute-button'>login</button> </NavLink>
-          </Menu.Item>
-          <Menu.Item>
-            <NavLink to={"/sign-up"}> <button className='cute-button'>sign up</button> </NavLink>
-          </Menu.Item>
+            <div id='right' className='nav-item'>
+              <NavLink to={"/login"}> <button id='nav-btn' className='cute-button'>login</button> </NavLink>
+            </div>
+            <div id='right' className='nav-item'>
+              <NavLink to={"/sign-up"}> <button id='nav-btn' className='cute-button'>sign up</button> </NavLink>
+            </div>
           </>
         }
-        </Menu.Menu>
-      </Menu>
+      </div>
+      <SlantMeter slant={this.props.userSlant} />
+      </>
     );
   }
 }
