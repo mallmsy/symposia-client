@@ -5,7 +5,8 @@ import ProfileEdit from './ProfileEdit'
 
 const Profile = ({history, currentUser, userSlant, likedPostIds, allPosts, editProfile}) => {
   let likedPosts = allPosts.filter(post => likedPostIds.includes(post.id))
-  let showPosts = likedPosts.slice(likedPosts.length -3, likedPosts.length)
+  let sortedPosts = likedPosts.sort((a,b) => a.publish_date > b.publish_date ? 1 : -1)
+  let showPosts = sortedPosts.slice(likedPosts.length -3, likedPosts.length)
 
   return (
     <div className='profile-header'>
@@ -14,7 +15,6 @@ const Profile = ({history, currentUser, userSlant, likedPostIds, allPosts, editP
             <img src={currentUser.img_url} alt={currentUser.username} />
             <h1>{currentUser.username}</h1>
             <p>{currentUser.bio}</p>
-            <p>User Slant: {userSlant}</p>
             <ProfileEdit />
           </div>
 

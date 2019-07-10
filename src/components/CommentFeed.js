@@ -69,7 +69,7 @@ class CommentFeed extends Component {
 
   render() {
     return (
-      <Feed>
+      <div>
         <AddComment
         addComment={this.addComment}
         postId={this.props.postId}/>
@@ -80,7 +80,7 @@ class CommentFeed extends Component {
         channel={{channel: 'CommentsChannel', post_id: this.props.postId}}
         onReceived={this.handleSocketResponse}
         />
-
+        <div className='comment-feed'>
         {this.state.comments
           ?
           this.state.comments.map(comment =>
@@ -91,7 +91,8 @@ class CommentFeed extends Component {
             handleRemove={this.removeComment} />)
 
             : null}
-      </Feed>
+        </div>
+      </div>
     );
   }
 

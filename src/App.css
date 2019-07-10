@@ -220,6 +220,10 @@ input {
 
 .liked-feed-item {
   margin: 15px;
+  color: white;
+}
+.liked-feed-item:hover {
+  color: blue;
 }
 
 .feed-image {
@@ -241,7 +245,7 @@ input {
 }
 
 .post-column {
-  width: 400px;
+  width: 500px;
 }
 
 .post-outter-div {
@@ -277,6 +281,17 @@ input {
 .comment {
   animation: shake 0.5s;
   animation-iteration-count: 1;
+  margin: 5px;
+  text-align: left;
+}
+
+.comment-feed {
+  display: flex;
+  flex-direction: column;
+}
+
+.avatar-small {
+  width: 50px;
 }
 
 /* BUTTONS */

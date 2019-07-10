@@ -28,19 +28,20 @@ class Comment extends React.Component {
 
   render() {
     return (
-      <Feed.Event className='comment'>
-        <Feed.Label image={this.state.user.img_url} />
+      <div className='comment'>
+        <div id='left'>
+          <h3>{this.state.user.username}</h3>
+          <img className='avatar-small' src={this.state.user.img_url} />
+        </div>
         <br/>
-        <Feed.Label content={this.state.user.username} />
-        <Feed.Content>
-        <br/>
+        <div id='right'>
         {this.state.editing
         ?
         <input onChange={this.handleChange} type='text' name='content' value={this.state.content}/>
         :
-        <Feed.Summary>
+        <p>
           {this.state.content}
-        </Feed.Summary>
+        </p>
         }
         { this.state.user.id === this.props.currentUser.id
           ?
@@ -51,8 +52,8 @@ class Comment extends React.Component {
           :
           null
         }
-       </Feed.Content>
-     </Feed.Event>
+        </div>
+     </div>
     );
   }
 }
