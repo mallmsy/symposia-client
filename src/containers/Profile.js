@@ -14,7 +14,7 @@ const Profile = ({history, currentUser, userSlant, likedPostIds, allPosts, editP
           <div className='post-column'>
             <img id='profile-avatar' src={currentUser.img_url} alt={currentUser.username} />
             <h1>{currentUser.username}</h1>
-            <p>{currentUser.bio}</p>
+            <p id='bio'>{currentUser.bio}</p>
             <ProfileEdit />
           </div>
 

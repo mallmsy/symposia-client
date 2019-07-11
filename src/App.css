@@ -218,6 +218,10 @@ input {
   width: 75%;
 }
 
+#bio {
+  font-size: 20px;
+}
+
 .profile-header {
   background-image: url('./background_gradient.jpg');
   background-size: cover;
