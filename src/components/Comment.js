@@ -1,5 +1,4 @@
 import React from 'react';
-import { Feed } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
 class Comment extends React.Component {
@@ -31,7 +30,7 @@ class Comment extends React.Component {
       <div className='comment'>
         <div id='left'>
           <h3>{this.state.user.username}</h3>
-          <img className='avatar-small' src={this.state.user.img_url} />
+          <img className='avatar-small' src={this.state.user.img_url} alt={this.state.user.username}/>
         </div>
         <br/>
         <div id='right'>

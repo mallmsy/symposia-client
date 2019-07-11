@@ -50,9 +50,10 @@ class ProfileEdit extends Component {
             <div className='form-field'>
               <h3>Political Slant</h3>
               <select name='slant' onChange={this.handleChange}>
-                <option name='slant' value={75}>Left</option>
-                <option name='slant' value={50}>Center</option>
-                <option name='slant' value={25}>Right</option>
+                <option selected='true' disabled='true'>Select your political leaning...</option>
+                <option name='slant' value={75}>Liberal</option>
+                <option name='slant' value={50}>Moderate</option>
+                <option name='slant' value={25}>Conservative</option>
               </select>
             </div>
             <div className='form-field'>

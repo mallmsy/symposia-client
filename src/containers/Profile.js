@@ -12,7 +12,7 @@ const Profile = ({history, currentUser, userSlant, likedPostIds, allPosts, editP
     <div className='profile-header'>
       <div className='post-container'>
           <div className='post-column'>
-            <img src={currentUser.img_url} alt={currentUser.username} />
+            <img id='profile-avatar' src={currentUser.img_url} alt={currentUser.username} />
             <h1>{currentUser.username}</h1>
             <p>{currentUser.bio}</p>
             <ProfileEdit />

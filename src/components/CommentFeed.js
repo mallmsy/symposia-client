@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Comment from './Comment';
 import AddComment from './AddComment';
-import { Feed } from 'semantic-ui-react';
 import { ActionCable } from 'react-actioncable-provider'
 import { connect } from 'react-redux';
 import { updateComment, removeComment } from '../actions/comments';

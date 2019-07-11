@@ -1,7 +1,6 @@
 import React, { createRef } from 'react';
 import './App.css';
 import { Route } from 'react-router-dom';
-import { Sticky } from 'semantic-ui-react';
 
 ////
 import { connect } from 'react-redux';
@@ -35,9 +34,7 @@ class App extends React.Component {
   render(){
     return (
       <div ref={this.contextRef} className="App">
-        <Sticky context={this.contextRef}>
-          <Nav history={this.props.history} currentUser={this.props.currentUser}/>
-        </Sticky>
+        <Nav history={this.props.history}/>
         <Route exact path="/" component={Home} />
         <Route path="/index" component={Index} />
         <Route path="/login" render={() => <LoginForm history={this.props.history}/>}/>
@@ -49,7 +46,7 @@ class App extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  currentUser: state.users.currentUser
+  currentUser: state.users.currentUser,
 })
 
 const mapDispatchToProps = (dispatch) => ({

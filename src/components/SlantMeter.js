@@ -3,7 +3,7 @@ import Filler from './Filler'
 
 const SlantMeter = ({slant}) => {
   return (
-    <div className='slant-meter'>
+    <div id='center' className='slant-meter'>
       <Filler slant={slant} />
     </div>
   )

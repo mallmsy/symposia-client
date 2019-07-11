@@ -1,5 +1,4 @@
-import React, {Component} from 'react';
-import { Form } from 'semantic-ui-react';
+import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { signUpUser } from '../actions/auth';
 
@@ -64,11 +63,14 @@ class Signup extends Component {
           </div>
 
           <div className='form-field'>
-          <Form.Select
-            placeholder='Select your political leaning'
-            options={this.slantOptions}
-            onChange={(event, selected) => this.handleChange(event, selected.value)}
-            />
+
+          <select name='slant' onChange={this.handleChange}>
+            <option selected='true' disabled='true'>Select your political leaning...</option>
+            <option name='slant' value={75}>Liberal</option>
+            <option name='slant' value={50}>Moderate</option>
+            <option name='slant' value={25}>Conservative</option>
+          </select>
+
           </div>
           <div className='form-field'>
             <button className='cute-button' type='submit'>Submit</button>

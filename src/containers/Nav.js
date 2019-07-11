@@ -2,7 +2,8 @@ import React, { PureComponent } from 'react';
 import {connect} from 'react-redux';
 import { NavLink, Link } from 'react-router-dom';
 import { logoutUser } from '../actions/auth';
-import SlantMeter from '../components/SlantMeter'
+import SlantMeter from '../components/SlantMeter';
+
 
 
 class Nav extends PureComponent {
@@ -15,7 +16,6 @@ class Nav extends PureComponent {
 
   render() {
     return (
-      <>
       <div id='nav'>
         <div id='left' className='nav-item'>
           {this.props.currentUser.username
@@ -38,15 +38,19 @@ class Nav extends PureComponent {
 
         {this.props.currentUser.username
           ?
-          <div id='right' className='nav-item'>
-            <NavLink to={`/profile/${this.props.currentUser.username}`}>
-              <img
-              className='avatar'
-              src={this.props.currentUser.img_url}/>
-            </NavLink>
+          <>
+            <div id='right' className='nav-item'>
+              <NavLink to={`/profile/${this.props.currentUser.username}`}>
+                <img
+                className='avatar'
+                src={this.props.currentUser.img_url}
+                alt={this.props.currentUser.username}/>
+              </NavLink>
 
-            <Link> <button id='nav-btn' className='cute-button' onClick={this.handleClick}>logout</button> </Link>
-          </div>
+              <Link> <button id='nav-btn' className='cute-button' onClick={this.handleClick}>logout</button> </Link>
+            </div>
+            <SlantMeter slant={this.props.userSlant} />
+          </>
           :
           <>
             <div id='right' className='nav-item'>
@@ -55,16 +59,15 @@ class Nav extends PureComponent {
             <div id='right' className='nav-item'>
               <NavLink to={"/sign-up"}> <button id='nav-btn' className='cute-button'>sign up</button> </NavLink>
             </div>
-          </>
+            </>
         }
       </div>
-      <SlantMeter slant={this.props.userSlant} />
-      </>
     );
   }
 }
 
 const mapStateToProps = state => ({
+  currentUser: state.users.currentUser,
   userSlant: state.users.userSlant
 })
 
