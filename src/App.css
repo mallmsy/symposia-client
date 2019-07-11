@@ -96,7 +96,7 @@ input {
 }
 
 .title {
-  font-size: 500%;
+  font-size: 15vw;
   font-family: 'Righteous', cursive;
   letter-spacing: 5px;
 }
@@ -153,7 +153,7 @@ input {
 
 .block-div {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  width: 75%;
+  width: 75vw;
   height: 75%;
   padding: 50px;
   position: relative;
@@ -183,10 +183,15 @@ input {
 
 .source-item {
   list-style-type: none;
+  line-height: 30px;
   width: 350px;
   height: inherit;
   padding: 5%;
   font-size: 125%;
+}
+
+.source-item a {
+  color: #00b8ff;
 }
 
 .source-item:hover {

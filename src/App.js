@@ -28,7 +28,7 @@ class App extends React.Component {
     this.props.fetchPosts()
     this.props.fetchComments()
 
-    // window.setInterval(this.props.fetchNewArticles, 300000)
+    // window.setInterval(this.props.fetchNewArticles, 1800000)
   }
 
   render(){
