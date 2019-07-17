@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import {connect} from 'react-redux';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { logoutUser } from '../actions/auth';
 import SlantMeter from '../components/SlantMeter';
 
@@ -40,12 +40,12 @@ class Nav extends PureComponent {
           ?
           <>
             <div id='right' className='nav-item'>
-              <NavLink to={`/profile/${this.props.currentUser.username}`}>
+              <Link to={`/profile/${this.props.currentUser.username}`}>
                 <img
                 className='avatar'
                 src={this.props.currentUser.img_url}
                 alt={this.props.currentUser.username}/>
-              </NavLink>
+              </Link>
 
               <Link> <button id='nav-btn' className='cute-button' onClick={this.handleClick}>logout</button> </Link>
             </div>
@@ -54,10 +54,10 @@ class Nav extends PureComponent {
           :
           <>
             <div id='right' className='nav-item'>
-              <NavLink to={"/login"}> <button id='nav-btn' className='cute-button'>login</button> </NavLink>
+              <Link to={"/login"}> <button id='nav-btn' className='cute-button'>login</button> </Link>
             </div>
             <div id='right' className='nav-item'>
-              <NavLink to={"/sign-up"}> <button id='nav-btn' className='cute-button'>sign up</button> </NavLink>
+              <Link to={"/sign-up"}> <button id='nav-btn' className='cute-button'>sign up</button> </Link>
             </div>
             </>
         }

@@ -12,8 +12,7 @@ class Signup extends Component {
 
   handleChange = (event, selected) => {
     this.setState({
-      [event.target.name]: event.target.value,
-      slant: selected
+      [event.target.name]: event.target.value
     });
   }
 

@@ -7,7 +7,7 @@ const Home = () => {
       <div>
         <h2 className='header'>Escape The Echo Chamber</h2>
         <h3>ech·o cham·ber /ˈekō ˌCHāmbər/</h3>
-        <p>"an environment in which a person encounters only beliefs or opinions that coincide with their own, so that their existing views are reinforced and alternative ideas are not considered""</p>
+        <p>"an environment in which a person encounters only beliefs or opinions that coincide with their own, so that their existing views are reinforced and alternative ideas are not considered"</p>
         <p>Without the opportunity to hear a variety of perspectives and ideas it becomes difficult to tolerate thoughts, opinions and people that are different from ourselves.</p>
         <h3>Why 'Symposia'?</h3>
         <p>In ancient Greece, symposia were a part of a banquet that took place after the meal, when drinking was accompanied by music, dancing, and conversation. We hope to revive that tradition of sharing a meal, a drink and lively (but civil) conversation!</p>
