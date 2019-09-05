@@ -20,7 +20,7 @@ const FilterBar = ({filterPosts, fetchNewArticles}) => {
              <button className='topic-button' onClick={() => filterPosts("LGBTQ")}>LGBTQ+</button>
              <button className='topic-button' id='all-topics' onClick={() => filterPosts("NONE")}>ALL POSTS</button>
         </div>
-          {/*<button className='cute-button' onClick={() => fetchNewArticles()}>Get New Articles</button>*/}
+          <button className='cute-button' onClick={() => fetchNewArticles()}>Get New Articles</button>
     </div>
   );
 }
