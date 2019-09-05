@@ -47,7 +47,7 @@ class Nav extends PureComponent {
                 alt={this.props.currentUser.username}/>
               </Link>
 
-              <Link> <button id='nav-btn' className='cute-button' onClick={this.handleClick}>logout</button> </Link>
+              <Link to={'/'}> <button id='nav-btn' className='cute-button' onClick={this.handleClick}>logout</button> </Link>
             </div>
             <SlantMeter slant={this.props.userSlant} />
           </>
