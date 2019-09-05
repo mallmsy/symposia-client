@@ -2,6 +2,10 @@
   "name": "symposia-client",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "npm": "6.11.3",
+    "node": "12.4.0"
+  },
   "dependencies": {
     "react": "^16.8.6",
     "react-actioncable-provider": "^2.0.0",
