@@ -2,7 +2,7 @@ export function signUpUser (user, history) {
   let finalNum;
   const num = Math.floor(Math.random() * 36) + 1
   num < 10 ? finalNum = '0' + num : finalNum = num
-  const url = `httpss://cdn0.iconfinder.com/data/icons/calico-cat-emoticon-filled/64/cute_cat_kitten_face_avatar_calico-${finalNum}-512.png`
+  const url = `https://cdn0.iconfinder.com/data/icons/calico-cat-emoticon-filled/64/cute_cat_kitten_face_avatar_calico-${finalNum}-512.png`
 
   return function(dispatch) {
     return fetch("https://symposia-api.herokuapp.com/users", {
