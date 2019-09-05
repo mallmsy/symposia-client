@@ -5,7 +5,7 @@ export function signUpUser (user, history) {
   const url = `https://cdn0.iconfinder.com/data/icons/calico-cat-emoticon-filled/64/cute_cat_kitten_face_avatar_calico-${finalNum}-512.png`
 
   return function(dispatch) {
-    return fetch("https://symposia-api.herokuapp.com/users", {
+    return fetch("http://symposia-api.herokuapp.com/users", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ export function signUpUser (user, history) {
 
 export function loginUser(user, history) {
   return function(dispatch) {
-    return fetch("https://symposia-api.herokuapp.com/login", {
+    return fetch("http://symposia-api.herokuapp.com/login", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
