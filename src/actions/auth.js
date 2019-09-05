@@ -2,10 +2,10 @@ export function signUpUser (user, history) {
   let finalNum;
   const num = Math.floor(Math.random() * 36) + 1
   num < 10 ? finalNum = '0' + num : finalNum = num
-  const url = `https://cdn0.iconfinder.com/data/icons/calico-cat-emoticon-filled/64/cute_cat_kitten_face_avatar_calico-${finalNum}-512.png`
+  const url = `httpss://cdn0.iconfinder.com/data/icons/calico-cat-emoticon-filled/64/cute_cat_kitten_face_avatar_calico-${finalNum}-512.png`
 
   return function(dispatch) {
-    return fetch("http://symposia-api.herokuapp.com/users", {
+    return fetch("https://symposia-api.herokuapp.com/users", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ export function signUpUser (user, history) {
 
 export function loginUser(user, history) {
   return function(dispatch) {
-    return fetch("http://symposia-api.herokuapp.com/login", {
+    return fetch("https://symposia-api.herokuapp.com/login", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ export function autoLoginUser() {
   return dispatch => {
     const token = localStorage.token;
     if (token) {
-      return fetch("http://symposia-api.herokuapp.com/profile", {
+      return fetch("https://symposia-api.herokuapp.com/profile", {
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',

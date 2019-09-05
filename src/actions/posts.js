@@ -1,4 +1,4 @@
-const BASE_URL = "http://symposia-api.herokuapp.com/"
+const BASE_URL = "https://symposia-api.herokuapp.com/"
 
 export function fetchPosts(){
   return function(dispatch){
