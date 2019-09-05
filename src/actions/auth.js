@@ -61,7 +61,7 @@ export function autoLoginUser() {
   return dispatch => {
     const token = localStorage.token;
     if (token) {
-      return fetch("https://symposia-api.herokuapp.com/profile", {
+      return fetch("http://symposia-api.herokuapp.com/profile", {
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',

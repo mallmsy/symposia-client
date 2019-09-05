@@ -14,7 +14,7 @@ export function fetchNewArticles(){
   return function(dispatch){
     const token = localStorage.token;
     if (token) {
-      return fetch("http://localhost:3000/fetch", {
+      return fetch(BASE_URL + "fetch", {
         headers: {
           'Authorization': `Bearer ${token}`
         }
