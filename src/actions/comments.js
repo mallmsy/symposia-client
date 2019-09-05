@@ -1,4 +1,4 @@
-const BASE_URL = "https://symposia-api.herokuapp.com/comments"
+const BASE_URL = "http://symposia-api.herokuapp.com/comments"
 
 export function fetchComments(){
     return function(dispatch){

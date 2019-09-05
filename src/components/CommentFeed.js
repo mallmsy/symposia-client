@@ -35,7 +35,7 @@ class CommentFeed extends Component {
     } else {
         let token = localStorage.token
         if (token) {
-          return fetch("http://localhost:3000/comments", {
+          return fetch("http://symposia-api.herokuapp.com/comments", {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
