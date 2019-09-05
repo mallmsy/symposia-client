@@ -1,6 +1,6 @@
 export function signUpUser (user, history) {
   let finalNum;
-  const num = Math.floor(Math.random() * 37) + 1
+  const num = Math.floor(Math.random() * 36) + 1
   num < 10 ? finalNum = '0' + num : finalNum = num
   const url = `https://cdn0.iconfinder.com/data/icons/calico-cat-emoticon-filled/64/cute_cat_kitten_face_avatar_calico-${finalNum}-512.png`
 

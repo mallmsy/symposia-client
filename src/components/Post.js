@@ -29,7 +29,9 @@ class Post extends React.Component {
           <img className='post-image' alt={this.props.post.title} src={this.props.post.img_url ? this.props.post.img_url : '../post_placeholder_img.jpg' }/>
         </a>
         <div className='post-content'>
-          <h3>{this.props.post.title}</h3>
+          <a href={this.props.post.link} target='_blank' rel="noopener noreferrer">
+            <h3>{this.props.post.title}</h3>
+          </a>
           <h4>{this.props.post.source}</h4>
           <h4>{this.props.post.publish_date}</h4>
           <p>{this.props.post.content}</p>

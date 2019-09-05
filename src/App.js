@@ -23,12 +23,12 @@ class App extends React.Component {
   contextRef = createRef()
 
   componentDidMount = () => {
-    // this.props.fetchNewArticles()
+    this.props.fetchNewArticles()
     this.props.autoLoginUser()
     this.props.fetchPosts()
     this.props.fetchComments()
 
-    // window.setInterval(this.props.fetchNewArticles, 1800000)
+    window.setInterval(this.props.fetchNewArticles, 	3600000)
   }
 
   render(){
